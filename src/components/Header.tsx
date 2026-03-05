@@ -3,9 +3,11 @@ import type { User } from '../types';
 interface HeaderProps {
   currentUser?: User | null;
   onLogout?: () => void;
+  appView?: 'main' | 'admin';
+  onToggleAdminView?: () => void;
 }
 
-const Header = ({ currentUser, onLogout }: HeaderProps) => {
+const Header = ({ currentUser, onLogout, appView, onToggleAdminView }: HeaderProps) => {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/5 border-b border-white/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,6 +29,21 @@ const Header = ({ currentUser, onLogout }: HeaderProps) => {
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               <span className="text-emerald-300 text-xs font-medium">Jonli</span>
             </div>
+
+            {currentUser && onToggleAdminView && (
+              <button
+                onClick={onToggleAdminView}
+                title={appView === 'admin' ? 'Asosiy sahifa' : 'Admin panel'}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-medium transition-all duration-200 ${
+                  appView === 'admin'
+                    ? 'bg-indigo-600/30 border-indigo-400/40 text-indigo-200 hover:bg-indigo-600/50'
+                    : 'bg-white/10 hover:bg-indigo-500/20 border border-white/10 hover:border-indigo-400/30 text-white/70 hover:text-indigo-300'
+                }`}
+              >
+                <span>{appView === 'admin' ? '📋' : '🛠️'}</span>
+                <span className="hidden sm:inline">{appView === 'admin' ? 'Asosiy sahifa' : 'Admin panel'}</span>
+              </button>
+            )}
 
             {currentUser && (
               <div className="flex items-center gap-2">
