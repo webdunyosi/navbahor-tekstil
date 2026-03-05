@@ -1,13 +1,4 @@
-import { useAuth } from '../context/useAuth';
-
-interface HeaderProps {
-  currentPage: 'main' | 'admin';
-  onNavigate: (page: 'main' | 'admin') => void;
-}
-
-const Header = ({ currentPage, onNavigate }: HeaderProps) => {
-  const { currentUser, logout } = useAuth();
-
+const Header = () => {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/5 border-b border-white/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,59 +14,9 @@ const Header = ({ currentPage, onNavigate }: HeaderProps) => {
               Ombor boshqaruv tizimi
             </p>
           </div>
-
-          <div className="ml-auto flex items-center gap-3">
-            {/* Navigation for admin */}
-            {currentUser?.role === 'admin' && (
-              <div className="hidden sm:flex items-center gap-2">
-                <button
-                  onClick={() => onNavigate('main')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${
-                    currentPage === 'main'
-                      ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-500/30'
-                      : 'bg-white/10 text-white/70 hover:bg-white/20'
-                  }`}
-                >
-                  📦 Ombor
-                </button>
-                <button
-                  onClick={() => onNavigate('admin')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${
-                    currentPage === 'admin'
-                      ? 'bg-purple-600 text-white shadow-sm shadow-purple-500/30'
-                      : 'bg-white/10 text-white/70 hover:bg-white/20'
-                  }`}
-                >
-                  ⚙️ Admin panel
-                </button>
-              </div>
-            )}
-
-            {/* Live badge */}
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span className="text-emerald-300 text-xs font-medium">Jonli</span>
-            </div>
-
-            {/* User info + logout */}
-            {currentUser && (
-              <div className="flex items-center gap-2">
-                <div className="hidden sm:flex flex-col items-end">
-                  <span className="text-white text-xs font-medium leading-tight">{currentUser.name}</span>
-                  <span className={`text-xs font-semibold leading-tight ${currentUser.role === 'admin' ? 'text-purple-300' : 'text-indigo-300'}`}>
-                    {currentUser.role === 'admin' ? '👑 Admin' : '👤 Foydalanuvchi'}
-                  </span>
-                </div>
-                <button
-                  onClick={logout}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 border border-red-400/20 text-red-300 text-xs font-medium transition-all duration-200"
-                  title="Chiqish"
-                >
-                  <span>🚪</span>
-                  <span className="hidden sm:inline">Chiqish</span>
-                </button>
-              </div>
-            )}
+          <div className="ml-auto hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 border border-emerald-400/30">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="text-emerald-300 text-xs font-medium">Jonli</span>
           </div>
         </div>
       </div>
