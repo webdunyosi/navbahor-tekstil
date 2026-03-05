@@ -5,13 +5,26 @@ interface HeaderProps {
   onLogout?: () => void;
   appView?: 'main' | 'admin';
   onToggleAdminView?: () => void;
+  onMenuToggle?: () => void;
 }
 
-const Header = ({ currentUser, onLogout, appView, onToggleAdminView }: HeaderProps) => {
+const Header = ({ currentUser, onLogout, appView, onToggleAdminView, onMenuToggle }: HeaderProps) => {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/5 border-b border-white/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4 py-4">
+          {onMenuToggle && (
+            <button
+              onClick={onMenuToggle}
+              title="Menyu"
+              className="flex flex-col justify-center items-center w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 transition-all duration-200 gap-1.5 shrink-0"
+              aria-label="Menyuni ochish/yopish"
+            >
+              <span className="block w-5 h-0.5 bg-white rounded-full"></span>
+              <span className="block w-5 h-0.5 bg-white rounded-full"></span>
+              <span className="block w-5 h-0.5 bg-white rounded-full"></span>
+            </button>
+          )}
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30 text-2xl select-none">
             🏭
           </div>

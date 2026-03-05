@@ -39,6 +39,7 @@ const App = () => {
   const [appView, setAppView] = useState<AppView>('main');
   const [sidebarPage, setSidebarPage] = useState<SidebarPage>('gallery');
   const [categories, setCategories] = useState<Category[]>(getStoredCategories);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogin = (user: User) => setCurrentUser(user);
   const handleRegister = (user: User) => setCurrentUser(user);
@@ -83,10 +84,16 @@ const App = () => {
         onLogout={handleLogout}
         appView={appView}
         onToggleAdminView={currentUser.role === 'admin' ? () => setAppView('admin') : undefined}
+        onMenuToggle={() => setSidebarOpen((prev) => !prev)}
       />
 
       <div className="flex">
-        <Sidebar activePage={sidebarPage} onPageChange={setSidebarPage} />
+        <Sidebar
+          activePage={sidebarPage}
+          onPageChange={setSidebarPage}
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+        />
 
         <main className="flex-1 px-4 sm:px-6 lg:px-8 py-8 space-y-6 min-w-0">
           {sidebarPage === 'gallery' && (
