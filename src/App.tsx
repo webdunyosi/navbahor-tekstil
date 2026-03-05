@@ -9,6 +9,7 @@ import ProductTable from './components/ProductTable';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import AdminPage from './pages/AdminPage';
+import Sidebar from './components/Sidebar';
 
 type AuthView = 'login' | 'register';
 type AppView = 'main' | 'admin';
@@ -113,48 +114,54 @@ const App = () => {
         onToggleAdminView={currentUser.role === 'admin' ? () => setAppView('admin') : undefined}
       />
 
-      <main className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-        {/* Stats */}
-        <StatsCards
-          totalProducts={filteredProducts.length}
-          totalQuantity={totalQuantity}
-          departmentsCount={departmentsCount}
-        />
-
-        {/* Category tabs */}
-        <div className="p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
-          <CategoryTabs
-            categories={categories}
-            activeId={activeCategory}
-            onSelect={handleCategorySelect}
+      <div className="flex gap-6 w-full px-4 sm:px-6 lg:px-8 py-8 items-start">
+        {/* Main content */}
+        <main className="flex-1 min-w-0 space-y-6">
+          {/* Stats */}
+          <StatsCards
+            totalProducts={filteredProducts.length}
+            totalQuantity={totalQuantity}
+            departmentsCount={departmentsCount}
           />
-        </div>
 
-        {/* Search & filter */}
-        <div className="p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
-          <SearchAndFilter
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            departmentFilter={departmentFilter}
-            onDepartmentChange={setDepartmentFilter}
-            departments={departments}
-          />
-        </div>
-
-        {/* Table panel */}
-        <div className="rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 overflow-hidden shadow-2xl">
-          <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
-            <div className="flex items-center gap-3">
-              <span className="text-xl">{currentCategory.icon}</span>
-              <h2 className="text-lg font-semibold text-white">{currentCategory.name}</h2>
-            </div>
-            <span className="text-sm text-white/50">
-              {filteredProducts.length} ta mahsulot
-            </span>
+          {/* Category tabs */}
+          <div className="p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+            <CategoryTabs
+              categories={categories}
+              activeId={activeCategory}
+              onSelect={handleCategorySelect}
+            />
           </div>
-          <ProductTable products={filteredProducts} />
-        </div>
-      </main>
+
+          {/* Search & filter */}
+          <div className="p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+            <SearchAndFilter
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              departmentFilter={departmentFilter}
+              onDepartmentChange={setDepartmentFilter}
+              departments={departments}
+            />
+          </div>
+
+          {/* Table panel */}
+          <div className="rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 overflow-hidden shadow-2xl">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <span className="text-xl">{currentCategory.icon}</span>
+                <h2 className="text-lg font-semibold text-white">{currentCategory.name}</h2>
+              </div>
+              <span className="text-sm text-white/50">
+                {filteredProducts.length} ta mahsulot
+              </span>
+            </div>
+            <ProductTable products={filteredProducts} />
+          </div>
+        </main>
+
+        {/* Sidebar */}
+        <Sidebar categories={categories} />
+      </div>
     </div>
   );
 };
