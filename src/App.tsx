@@ -9,7 +9,7 @@ import AdminPage from './pages/AdminPage';
 import GalleryPage from './pages/GalleryPage';
 import AboutPage from './pages/AboutPage';
 
-type AppView = 'main' | 'admin';
+type AppView = 'main' | 'login' | 'admin';
 
 const CATEGORIES_KEY = 'categories';
 
@@ -38,11 +38,27 @@ const App = () => {
   const [categories, setCategories] = useState<Category[]>(getStoredCategories);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleLogin = (user: User) => setCurrentUser(user);
+  const handleLogin = (user: User) => {
+    setCurrentUser(user);
+    if (user.role === 'admin') {
+      setAppView('admin');
+    } else {
+      setAppView('main');
+    }
+  };
+
   const handleLogout = () => {
     localStorage.removeItem('currentUser');
     setCurrentUser(null);
     setAppView('main');
+  };
+
+  const handleAdminIconClick = () => {
+    if (currentUser?.role === 'admin') {
+      setAppView(appView === 'admin' ? 'main' : 'admin');
+    } else {
+      setAppView('login');
+    }
   };
 
   const handleUpdateCategories = (updated: Category[]) => {
@@ -50,11 +66,16 @@ const App = () => {
     localStorage.setItem(CATEGORIES_KEY, JSON.stringify(updated));
   };
 
-  if (!currentUser) {
-    return <LoginPage onLogin={handleLogin} />;
+  if (appView === 'login') {
+    return (
+      <LoginPage
+        onLogin={handleLogin}
+        onCancel={() => setAppView('main')}
+      />
+    );
   }
 
-  if (appView === 'admin' && currentUser.role === 'admin') {
+  if (appView === 'admin' && currentUser?.role === 'admin') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-white">
         <Header
@@ -74,7 +95,7 @@ const App = () => {
         currentUser={currentUser}
         onLogout={handleLogout}
         appView={appView}
-        onToggleAdminView={currentUser.role === 'admin' ? () => setAppView('admin') : undefined}
+        onToggleAdminView={handleAdminIconClick}
         onMenuToggle={() => setSidebarOpen((prev) => !prev)}
       />
 
