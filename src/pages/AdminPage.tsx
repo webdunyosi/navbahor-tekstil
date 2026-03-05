@@ -18,6 +18,23 @@ const emptyForm = (): Omit<Product, 'id'> => ({
   image: '',
 });
 
+const ProductImage = ({ src, alt, size = 'table' }: { src: string; alt: string; size?: 'table' | 'preview' }) => {
+  const [error, setError] = useState(false);
+  const cls = size === 'preview' ? 'w-16 h-16' : 'w-12 h-12';
+  if (error) {
+    return (
+      <div className={`${cls} rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/20 text-xl`}>
+        📦
+      </div>
+    );
+  }
+  return (
+    <div className={`${cls} rounded-lg overflow-hidden border border-white/10`}>
+      <img src={src} alt={alt} className="w-full h-full object-cover" onError={() => setError(true)} />
+    </div>
+  );
+};
+
 const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
   const [activeCategoryId, setActiveCategoryId] = useState(categories[0]?.id ?? '');
   const [showForm, setShowForm] = useState(false);
@@ -195,6 +212,22 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                       className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/15 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-indigo-500/60 text-sm"
                     />
                   </div>
+                  {/* Image URL */}
+                  <div>
+                    <label className="block text-xs text-white/60 mb-1">Rasm havolasi (URL)</label>
+                    <input
+                      type="url"
+                      value={form.image ?? ''}
+                      onChange={(e) => handleFormChange('image', e.target.value)}
+                      placeholder="https://example.com/rasm.jpg"
+                      className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/15 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-indigo-500/60 text-sm"
+                    />
+                    {form.image && (
+                      <div className="mt-2">
+                        <ProductImage src={form.image} alt="Preview" size="preview" />
+                      </div>
+                    )}
+                  </div>
 
                   {/* Error & Submit */}
                   {formError && (
@@ -233,7 +266,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                 <table className="w-full text-sm text-left border-separate border-spacing-0">
                   <thead>
                     <tr>
-                      {['No', 'Nomi', 'Modeli', 'Izoh', "O'lchov", 'Soni', "Bo'lim", 'Amal'].map((col, i) => (
+                      {['No', 'Rasm', 'Nomi', 'Modeli', 'Izoh', "O'lchov", 'Soni', "Bo'lim", 'Amal'].map((col, i) => (
                         <th
                           key={col}
                           className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider text-indigo-300 bg-indigo-950/60 border-b border-white/10 whitespace-nowrap ${i === 0 ? 'rounded-tl-xl' : ''}`}
@@ -247,6 +280,15 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                     {activeCategory.products.map((product, index) => (
                       <tr key={product.id} className="group hover:bg-indigo-500/10 transition-colors duration-150">
                         <td className="px-4 py-3 text-white/50 font-mono text-xs border-b border-white/5">{index + 1}</td>
+                        <td className="px-4 py-3 border-b border-white/5">
+                          {product.image ? (
+                            <ProductImage src={product.image} alt={product.name} />
+                          ) : (
+                            <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/20 text-xl">
+                              📦
+                            </div>
+                          )}
+                        </td>
                         <td className="px-4 py-3 font-medium text-white whitespace-nowrap border-b border-white/5">{product.name}</td>
                         <td className="px-4 py-3 text-indigo-200 font-mono text-xs whitespace-nowrap border-b border-white/5">{product.model}</td>
                         <td className="px-4 py-3 text-white/60 max-w-[160px] truncate border-b border-white/5" title={product.note}>{product.note || '—'}</td>
