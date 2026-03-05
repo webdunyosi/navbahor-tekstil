@@ -4,10 +4,9 @@ import initialUsers from '../data/users.json';
 
 interface LoginPageProps {
   onLogin: (user: User) => void;
-  onGoRegister: () => void;
 }
 
-const LoginPage = ({ onLogin, onGoRegister }: LoginPageProps) => {
+const LoginPage = ({ onLogin }: LoginPageProps) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -98,16 +97,6 @@ const LoginPage = ({ onLogin, onGoRegister }: LoginPageProps) => {
               Kirish
             </button>
           </form>
-
-          <p className="mt-6 text-center text-sm text-white/50">
-            Hisobingiz yo'qmi?{' '}
-            <button
-              onClick={onGoRegister}
-              className="text-indigo-300 hover:text-indigo-200 font-medium transition-colors"
-            >
-              Ro'yhatdan o'ting
-            </button>
-          </p>
         </div>
       </div>
     </div>
