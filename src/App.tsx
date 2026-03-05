@@ -55,7 +55,7 @@ const App = () => {
 
   const handleAdminIconClick = () => {
     if (currentUser?.role === 'admin') {
-      setAppView(appView === 'admin' ? 'main' : 'admin');
+      setAppView('admin');
     } else {
       setAppView('login');
     }
@@ -81,8 +81,6 @@ const App = () => {
         <Header
           currentUser={currentUser}
           onLogout={handleLogout}
-          appView={appView}
-          onToggleAdminView={() => setAppView('main')}
         />
         <AdminPage categories={categories} onUpdateCategories={handleUpdateCategories} />
       </div>
@@ -94,7 +92,6 @@ const App = () => {
       <Header
         currentUser={currentUser}
         onLogout={handleLogout}
-        appView={appView}
         onToggleAdminView={handleAdminIconClick}
         onMenuToggle={() => setSidebarOpen((prev) => !prev)}
       />
