@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { categories } from './data';
+import categories from './data/data.json';
 import Header from './components/Header';
 import StatsCards from './components/StatsCards';
 import CategoryTabs from './components/CategoryTabs';
