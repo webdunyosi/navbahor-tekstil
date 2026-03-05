@@ -10,7 +10,7 @@ interface HeaderProps {
 
 const Header = ({ currentUser, onLogout, appView, onToggleAdminView, onMenuToggle }: HeaderProps) => {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/5 border-b border-white/10 shadow-lg">
+    <header className="backdrop-blur-md bg-white/5 border-b border-white/10 shadow-lg">
       <div className="w-full mx-auto px-5">
         <div className="flex items-center gap-4 py-4">
           {onMenuToggle && (
