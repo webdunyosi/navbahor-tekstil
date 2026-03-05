@@ -5,12 +5,5 @@
     "password": "Admin123!",
     "role": "admin",
     "name": "Administrator"
-  },
-  {
-    "id": 2,
-    "username": "alimardontoshpulatov",
-    "password": "Alimardon123!",
-    "role": "user",
-    "name": "Alimardon Toshpo'latov"
   }
 ]
