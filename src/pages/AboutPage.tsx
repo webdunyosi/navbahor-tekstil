@@ -1,20 +1,23 @@
+import { FaCircleInfo, FaBox, FaHashtag, FaTag } from 'react-icons/fa6';
+import type { IconType } from 'react-icons';
 import type { Category } from '../types';
+import CategoryIcon from '../components/CategoryIcon';
 
 interface AboutPageProps {
   categories: Category[];
 }
 
 interface StatItemProps {
-  icon: string;
+  icon: IconType;
   label: string;
   value: number;
   color: string;
 }
 
-const StatItem = ({ icon, label, value, color }: StatItemProps) => (
+const StatItem = ({ icon: Icon, label, value, color }: StatItemProps) => (
   <div className={`flex items-center gap-5 px-6 py-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl`}>
     <div className={`flex items-center justify-center w-14 h-14 rounded-xl text-3xl ${color} shadow-lg`}>
-      {icon}
+      <Icon className="text-white" />
     </div>
     <div>
       <p className="text-white/60 text-xs font-medium uppercase tracking-wider">{label}</p>
@@ -32,7 +35,7 @@ const AboutPage = ({ categories }: AboutPageProps) => {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
-        <span className="text-3xl">ℹ️</span>
+        <FaCircleInfo className="text-3xl text-white" />
         <div>
           <h2 className="text-2xl font-bold text-white">About</h2>
           <p className="text-sm text-white/50">Ombor umumiy ma'lumotlari</p>
@@ -41,19 +44,19 @@ const AboutPage = ({ categories }: AboutPageProps) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <StatItem
-          icon="📦"
+          icon={FaBox}
           label="Jami mahsulot"
           value={totalProducts}
           color="bg-indigo-500/30"
         />
         <StatItem
-          icon="🔢"
+          icon={FaHashtag}
           label="Jami miqdor"
           value={totalQuantity}
           color="bg-purple-500/30"
         />
         <StatItem
-          icon="🏷️"
+          icon={FaTag}
           label="Bo'limlar soni"
           value={departmentsCount}
           color="bg-blue-500/30"
@@ -70,7 +73,7 @@ const AboutPage = ({ categories }: AboutPageProps) => {
             const depts = new Set(cat.products.map((p) => p.department)).size;
             return (
               <div key={cat.id} className="flex items-center gap-4 px-6 py-4 hover:bg-white/5 transition-colors">
-                <span className="text-2xl">{cat.icon}</span>
+                <CategoryIcon name={cat.icon} className="text-2xl" />
                 <div className="flex-1">
                   <p className="text-white font-medium">{cat.name}</p>
                   <p className="text-white/50 text-xs mt-0.5">{depts} ta bo'lim</p>

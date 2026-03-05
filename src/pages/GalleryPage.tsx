@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
+import { FaImages, FaMagnifyingGlass, FaBox } from 'react-icons/fa6';
 import type { Category } from '../types';
 import ProductModal from '../components/ProductModal';
 import type { Product } from '../types';
@@ -22,7 +23,7 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
   const allTab: Category = useMemo(() => ({
     id: ALL_CATEGORIES_TAB_ID,
     name: 'Barchasi',
-    icon: '🗂️',
+    icon: 'FaFolderOpen',
     products: categories.flatMap((c) => c.products),
   }), [categories]);
 
@@ -57,7 +58,7 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
   if (allTab.products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-white/40">
-        <span className="text-5xl mb-4">🖼️</span>
+        <FaImages className="text-5xl mb-4" />
         <p className="text-lg font-medium">Rasmlar yo'q</p>
       </div>
     );
@@ -85,7 +86,7 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
         <div className="rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 overflow-hidden shadow-2xl p-4">
           {filteredProducts.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 text-white/40">
-              <span className="text-4xl mb-3">🔍</span>
+              <FaMagnifyingGlass className="text-4xl mb-3" />
               <p className="text-base font-medium">Hech narsa topilmadi</p>
             </div>
           ) : (
@@ -105,8 +106,8 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-white/20 text-4xl">
-                      📦
+                    <div className="w-full h-full flex items-center justify-center text-white/20">
+                      <FaBox className="text-4xl" />
                     </div>
                   )}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end p-2">

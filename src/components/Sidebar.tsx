@@ -1,3 +1,6 @@
+import { FaImages, FaCircleInfo, FaXmark } from 'react-icons/fa6';
+import type { IconType } from 'react-icons';
+
 type SidebarPage = 'gallery' | 'about';
 
 interface SidebarProps {
@@ -7,9 +10,9 @@ interface SidebarProps {
   onClose: () => void;
 }
 
-const NAV_ITEMS: { id: SidebarPage; icon: string; label: string }[] = [
-  { id: 'gallery', icon: '🖼️', label: 'Galereya' },
-  { id: 'about',   icon: 'ℹ️',  label: 'About'    },
+const NAV_ITEMS: { id: SidebarPage; icon: IconType; label: string }[] = [
+  { id: 'gallery', icon: FaImages,      label: 'Galereya' },
+  { id: 'about',   icon: FaCircleInfo,  label: 'About'    },
 ];
 
 const Sidebar = ({ activePage, onPageChange, isOpen, onClose }: SidebarProps) => {
@@ -43,7 +46,7 @@ const Sidebar = ({ activePage, onPageChange, isOpen, onClose }: SidebarProps) =>
             onClick={onClose}
             className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors"
           >
-            ✕
+            <FaXmark className="text-lg" />
           </button>
         </div>
 
@@ -59,7 +62,7 @@ const Sidebar = ({ activePage, onPageChange, isOpen, onClose }: SidebarProps) =>
                   : 'text-white/60 hover:bg-white/10 hover:text-white'
               }`}
             >
-              <span className="text-xl shrink-0">{item.icon}</span>
+              <item.icon className="text-xl shrink-0" />
               <span>{item.label}</span>
             </button>
           );
