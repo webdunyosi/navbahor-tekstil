@@ -2,82 +2,622 @@
   {
     "id": "tayorlov",
     "name": "Tayorlov sehi",
-    "icon": "⚙️",
+    "icon": "FaCog",
     "products": [
-      { "id": 1,  "name": "Izolenta",            "model": "PVC-19mm",       "note": "Qora rangli",           "unit": "Dona",     "quantity": 150, "department": "Elektr",    "image": "/product/1.png" },
-      { "id": 2,  "name": "Rulonlar",             "model": "R-500",          "note": "Zaxira",                "unit": "Dona",     "quantity": 80,  "department": "Mexanik",   "image": "/product/2.png" },
-      { "id": 3,  "name": "Moslama (kressel)",    "model": "KR-200",         "note": "Metall qotishma",       "unit": "Dona",     "quantity": 12,  "department": "Mexanik",   "image": "/product/3.png" },
-      { "id": 4,  "name": "Vinch",                "model": "VN-5T",          "note": "5 tonna ko'tarish",     "unit": "Dona",     "quantity": 3,   "department": "Gidravlik", "image": "/product/1.png" },
-      { "id": 5,  "name": "Shkiv",                "model": "ShK-300",        "note": "D=300 mm",              "unit": "Dona",     "quantity": 24,  "department": "Mexanik",   "image": "/product/2.png" },
-      { "id": 6,  "name": "Tasma (klinli)",       "model": "A-1000",         "note": "Uzunligi 1000 mm",      "unit": "Dona",     "quantity": 60,  "department": "Mexanik",   "image": "/product/3.png" },
-      { "id": 7,  "name": "Moy filtri",           "model": "MF-40",          "note": "Almashtirish muddati",  "unit": "Dona",     "quantity": 45,  "department": "Gidravlik", "image": "/product/1.png" },
-      { "id": 8,  "name": "Podshipnik",           "model": "6205-2RS",       "note": "Yopiq turdagi",         "unit": "Dona",     "quantity": 200, "department": "Mexanik",   "image": "/product/2.png" },
-      { "id": 9,  "name": "Elektr kabeli",        "model": "ВВГНГ 3x2.5",   "note": "Yong'inga chidamli",    "unit": "Metr",     "quantity": 500, "department": "Elektr",    "image": "/product/3.png" },
-      { "id": 10, "name": "Pnevmatik shlang",     "model": "PSh-12",         "note": "D=12 mm",               "unit": "Metr",     "quantity": 300, "department": "Gidravlik", "image": "/product/1.png" },
-      { "id": 11, "name": "Murvat to'plami",      "model": "M8x30 DIN933",   "note": "Mis qoplamali",         "unit": "Kg",       "quantity": 25,  "department": "Mexanik",   "image": "/product/2.png" },
-      { "id": 12, "name": "Elektr motori",        "model": "АИР90L4",        "note": "2.2 kW, 1500 ayl/min", "unit": "Dona",     "quantity": 6,   "department": "Elektr",    "image": "/product/3.png" },
-      { "id": 13, "name": "Gidravlik nasos",      "model": "GN-PH-40",       "note": "Yog' bosimi 200 bar",   "unit": "Dona",     "quantity": 4,   "department": "Gidravlik", "image": "/product/1.png" },
-      { "id": 14, "name": "Konveyer lentasi",     "model": "KL-800",         "note": "Kenglik 800 mm",        "unit": "Metr",     "quantity": 120, "department": "Transport", "image": "/product/2.png" },
-      { "id": 15, "name": "Reduktor",             "model": "RD-50-40",       "note": "Kamaytirish nisbati 40","unit": "Dona",     "quantity": 8,   "department": "Mexanik",   "image": "/product/3.png" },
-      { "id": 16, "name": "Manometr",             "model": "MAN-100",        "note": "0–250 bar diapazoni",   "unit": "Dona",     "quantity": 18,  "department": "Gidravlik", "image": "/product/1.png" },
-      { "id": 17, "name": "Avariya tormozi",      "model": "AT-200",         "note": "Elektromagnitli",       "unit": "Dona",     "quantity": 10,  "department": "Elektr",    "image": "/product/2.png" },
-      { "id": 18, "name": "Zanjir (rollika)",     "model": "08B-1",          "note": "Uzunligi 3 metr",       "unit": "Metr",     "quantity": 90,  "department": "Mexanik",   "image": "/product/3.png" },
-      { "id": 19, "name": "Sensor (harorat)",     "model": "PT100",          "note": "–50 dan +200 °C",       "unit": "Dona",     "quantity": 30,  "department": "Elektr",    "image": "/product/1.png" },
-      { "id": 20, "name": "Havo kompressori",     "model": "HK-750L",        "note": "7.5 kW, 750 l/min",    "unit": "Dona",     "quantity": 2,   "department": "Gidravlik", "image": "/product/2.png" }
+      {
+        "id": 1,
+        "name": "Izolenta",
+        "model": "PVC-19mm",
+        "note": "Qora rangli",
+        "unit": "Dona",
+        "quantity": 150,
+        "department": "Elektr",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 2,
+        "name": "Rulonlar",
+        "model": "R-500",
+        "note": "Zaxira",
+        "unit": "Dona",
+        "quantity": 80,
+        "department": "Mexanik",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 3,
+        "name": "Moslama (kressel)",
+        "model": "KR-200",
+        "note": "Metall qotishma",
+        "unit": "Dona",
+        "quantity": 12,
+        "department": "Mexanik",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 4,
+        "name": "Vinch",
+        "model": "VN-5T",
+        "note": "5 tonna ko'tarish",
+        "unit": "Dona",
+        "quantity": 3,
+        "department": "Gidravlik",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 5,
+        "name": "Shkiv",
+        "model": "ShK-300",
+        "note": "D=300 mm",
+        "unit": "Dona",
+        "quantity": 24,
+        "department": "Mexanik",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 6,
+        "name": "Tasma (klinli)",
+        "model": "A-1000",
+        "note": "Uzunligi 1000 mm",
+        "unit": "Dona",
+        "quantity": 60,
+        "department": "Mexanik",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 7,
+        "name": "Moy filtri",
+        "model": "MF-40",
+        "note": "Almashtirish muddati",
+        "unit": "Dona",
+        "quantity": 45,
+        "department": "Gidravlik",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 8,
+        "name": "Podshipnik",
+        "model": "6205-2RS",
+        "note": "Yopiq turdagi",
+        "unit": "Dona",
+        "quantity": 200,
+        "department": "Mexanik",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 9,
+        "name": "Elektr kabeli",
+        "model": "ВВГНГ 3x2.5",
+        "note": "Yong'inga chidamli",
+        "unit": "Metr",
+        "quantity": 500,
+        "department": "Elektr",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 10,
+        "name": "Pnevmatik shlang",
+        "model": "PSh-12",
+        "note": "D=12 mm",
+        "unit": "Metr",
+        "quantity": 300,
+        "department": "Gidravlik",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 11,
+        "name": "Murvat to'plami",
+        "model": "M8x30 DIN933",
+        "note": "Mis qoplamali",
+        "unit": "Kg",
+        "quantity": 25,
+        "department": "Mexanik",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 12,
+        "name": "Elektr motori",
+        "model": "АИР90L4",
+        "note": "2.2 kW, 1500 ayl/min",
+        "unit": "Dona",
+        "quantity": 6,
+        "department": "Elektr",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 13,
+        "name": "Gidravlik nasos",
+        "model": "GN-PH-40",
+        "note": "Yog' bosimi 200 bar",
+        "unit": "Dona",
+        "quantity": 4,
+        "department": "Gidravlik",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 14,
+        "name": "Konveyer lentasi",
+        "model": "KL-800",
+        "note": "Kenglik 800 mm",
+        "unit": "Metr",
+        "quantity": 120,
+        "department": "Transport",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 15,
+        "name": "Reduktor",
+        "model": "RD-50-40",
+        "note": "Kamaytirish nisbati 40",
+        "unit": "Dona",
+        "quantity": 8,
+        "department": "Mexanik",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 16,
+        "name": "Manometr",
+        "model": "MAN-100",
+        "note": "0–250 bar diapazoni",
+        "unit": "Dona",
+        "quantity": 18,
+        "department": "Gidravlik",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 17,
+        "name": "Avariya tormozi",
+        "model": "AT-200",
+        "note": "Elektromagnitli",
+        "unit": "Dona",
+        "quantity": 10,
+        "department": "Elektr",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 18,
+        "name": "Zanjir (rollika)",
+        "model": "08B-1",
+        "note": "Uzunligi 3 metr",
+        "unit": "Metr",
+        "quantity": 90,
+        "department": "Mexanik",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 19,
+        "name": "Sensor (harorat)",
+        "model": "PT100",
+        "note": "–50 dan +200 °C",
+        "unit": "Dona",
+        "quantity": 30,
+        "department": "Elektr",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 20,
+        "name": "Havo kompressori",
+        "model": "HK-750L",
+        "note": "7.5 kW, 750 l/min",
+        "unit": "Dona",
+        "quantity": 2,
+        "department": "Gidravlik",
+        "image": "/product/2.png"
+      }
     ]
   },
   {
     "id": "buyum",
     "name": "Buyum sehi",
-    "icon": "🧵",
+    "icon": "FaCut",
     "products": [
-      { "id": 100, "name": "Tikuv mashinasi",       "model": "JUKI DDL-8700",  "note": "Sanoat darajasi",       "unit": "Dona",     "quantity": 40,   "department": "Tikuvchi",  "image": "/product/3.png" },
-      { "id": 101, "name": "Ip (paxta, oq)",        "model": "Ne 40/2",        "note": "1 kg g'altakda",        "unit": "Kg",       "quantity": 800,  "department": "Tikuvchi",  "image": "/product/1.png" },
-      { "id": 102, "name": "Ip (paxta, rang)",      "model": "Ne 40/2 R",      "note": "Aralash rang",          "unit": "Kg",       "quantity": 350,  "department": "Bosma",     "image": "/product/2.png" },
-      { "id": 103, "name": "Tugma (plastik)",       "model": "TG-18mm",        "note": "4 teshikli",            "unit": "Dona",     "quantity": 5000, "department": "Tikuvchi",  "image": "/product/3.png" },
-      { "id": 104, "name": "Fermuvar",              "model": "YKK-50cm",       "note": "Ranglar aralash",       "unit": "Dona",     "quantity": 1200, "department": "Tikuvchi",  "image": "/product/1.png" },
-      { "id": 105, "name": "Ip (polyester)",        "model": "120D/2",         "note": "Mustahkam tikuv uchun", "unit": "Katushka", "quantity": 500,  "department": "Tikuvchi",  "image": "/product/2.png" },
-      { "id": 106, "name": "Tikuv ignasi",          "model": "DBx1 №14",       "note": "JUKI uchun mos",        "unit": "Quti",     "quantity": 200,  "department": "Tikuvchi",  "image": "/product/3.png" },
-      { "id": 107, "name": "Mato (paxta, oq)",      "model": "40x40/133x72",   "note": "Kenglik 150 sm",        "unit": "Metr",     "quantity": 3000, "department": "Kesish",    "image": "/product/1.png" },
-      { "id": 108, "name": "Mato (rangli)",         "model": "30x30/110x76",   "note": "Kenglik 150 sm",        "unit": "Metr",     "quantity": 1500, "department": "Kesish",    "image": "/product/2.png" },
-      { "id": 109, "name": "Kesish mashinasi",      "model": "Eastman 627X",   "note": "Yumaloq pichoq",        "unit": "Dona",     "quantity": 8,    "department": "Kesish",    "image": "/product/3.png" },
-      { "id": 110, "name": "Yelim (termal)",        "model": "HM-Glue 200g",   "note": "Yukori haroratli",      "unit": "Kg",       "quantity": 40,   "department": "Bosma",     "image": "/product/1.png" },
-      { "id": 111, "name": "Kalit (qopqa uchun)",   "model": "KKL-10",         "note": "Plastik qopqa",         "unit": "Dona",     "quantity": 3000, "department": "Qadoqlash", "image": "/product/2.png" },
-      { "id": 112, "name": "Yorliq (teg)",          "model": "YR-50x30mm",     "note": "Shtrix-kod bosilgan",   "unit": "Dona",     "quantity": 10000,"department": "Qadoqlash", "image": "/product/3.png" },
-      { "id": 113, "name": "Qadoq qop",             "model": "PP-50x80",       "note": "Polipropilen",          "unit": "Dona",     "quantity": 2000, "department": "Qadoqlash", "image": "/product/1.png" },
-      { "id": 114, "name": "Ip kesgich",            "model": "IK-manual",      "note": "Qo'l uchun",            "unit": "Dona",     "quantity": 60,   "department": "Tikuvchi",  "image": "/product/2.png" },
-      { "id": 115, "name": "Bosma trubka",          "model": "BT-Ø8mm",        "note": "Alyuminiy",             "unit": "Metr",     "quantity": 200,  "department": "Bosma",     "image": "/product/3.png" },
-      { "id": 116, "name": "Planshet (shablon)",    "model": "SH-A4",          "note": "Plastik laminat",       "unit": "Dona",     "quantity": 150,  "department": "Kesish",    "image": "/product/1.png" },
-      { "id": 117, "name": "Trikotaj qaychi",       "model": "QY-9inch",       "note": "Zangsiz po'lat",        "unit": "Dona",     "quantity": 80,   "department": "Kesish",    "image": "/product/2.png" },
-      { "id": 118, "name": "Ip tutuvchan (konusse)","model": "KON-5000m",      "note": "5000 m g'altakda",      "unit": "Dona",     "quantity": 600,  "department": "Tikuvchi",  "image": "/product/3.png" },
-      { "id": 119, "name": "Biriktiruvchi lenta",   "model": "BL-25mm",        "note": "Kenglik 25 mm",         "unit": "Metr",     "quantity": 500,  "department": "Qadoqlash", "image": "/product/1.png" }
+      {
+        "id": 100,
+        "name": "Tikuv mashinasi",
+        "model": "JUKI DDL-8700",
+        "note": "Sanoat darajasi",
+        "unit": "Dona",
+        "quantity": 40,
+        "department": "Tikuvchi",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 101,
+        "name": "Ip (paxta, oq)",
+        "model": "Ne 40/2",
+        "note": "1 kg g'altakda",
+        "unit": "Kg",
+        "quantity": 800,
+        "department": "Tikuvchi",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 102,
+        "name": "Ip (paxta, rang)",
+        "model": "Ne 40/2 R",
+        "note": "Aralash rang",
+        "unit": "Kg",
+        "quantity": 350,
+        "department": "Bosma",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 103,
+        "name": "Tugma (plastik)",
+        "model": "TG-18mm",
+        "note": "4 teshikli",
+        "unit": "Dona",
+        "quantity": 5000,
+        "department": "Tikuvchi",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 104,
+        "name": "Fermuvar",
+        "model": "YKK-50cm",
+        "note": "Ranglar aralash",
+        "unit": "Dona",
+        "quantity": 1200,
+        "department": "Tikuvchi",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 105,
+        "name": "Ip (polyester)",
+        "model": "120D/2",
+        "note": "Mustahkam tikuv uchun",
+        "unit": "Katushka",
+        "quantity": 500,
+        "department": "Tikuvchi",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 106,
+        "name": "Tikuv ignasi",
+        "model": "DBx1 №14",
+        "note": "JUKI uchun mos",
+        "unit": "Quti",
+        "quantity": 200,
+        "department": "Tikuvchi",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 107,
+        "name": "Mato (paxta, oq)",
+        "model": "40x40/133x72",
+        "note": "Kenglik 150 sm",
+        "unit": "Metr",
+        "quantity": 3000,
+        "department": "Kesish",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 108,
+        "name": "Mato (rangli)",
+        "model": "30x30/110x76",
+        "note": "Kenglik 150 sm",
+        "unit": "Metr",
+        "quantity": 1500,
+        "department": "Kesish",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 109,
+        "name": "Kesish mashinasi",
+        "model": "Eastman 627X",
+        "note": "Yumaloq pichoq",
+        "unit": "Dona",
+        "quantity": 8,
+        "department": "Kesish",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 110,
+        "name": "Yelim (termal)",
+        "model": "HM-Glue 200g",
+        "note": "Yukori haroratli",
+        "unit": "Kg",
+        "quantity": 40,
+        "department": "Bosma",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 111,
+        "name": "Kalit (qopqa uchun)",
+        "model": "KKL-10",
+        "note": "Plastik qopqa",
+        "unit": "Dona",
+        "quantity": 3000,
+        "department": "Qadoqlash",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 112,
+        "name": "Yorliq (teg)",
+        "model": "YR-50x30mm",
+        "note": "Shtrix-kod bosilgan",
+        "unit": "Dona",
+        "quantity": 10000,
+        "department": "Qadoqlash",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 113,
+        "name": "Qadoq qop",
+        "model": "PP-50x80",
+        "note": "Polipropilen",
+        "unit": "Dona",
+        "quantity": 2000,
+        "department": "Qadoqlash",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 114,
+        "name": "Ip kesgich",
+        "model": "IK-manual",
+        "note": "Qo'l uchun",
+        "unit": "Dona",
+        "quantity": 60,
+        "department": "Tikuvchi",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 115,
+        "name": "Bosma trubka",
+        "model": "BT-Ø8mm",
+        "note": "Alyuminiy",
+        "unit": "Metr",
+        "quantity": 200,
+        "department": "Bosma",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 116,
+        "name": "Planshet (shablon)",
+        "model": "SH-A4",
+        "note": "Plastik laminat",
+        "unit": "Dona",
+        "quantity": 150,
+        "department": "Kesish",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 117,
+        "name": "Trikotaj qaychi",
+        "model": "QY-9inch",
+        "note": "Zangsiz po'lat",
+        "unit": "Dona",
+        "quantity": 80,
+        "department": "Kesish",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 118,
+        "name": "Ip tutuvchan (konusse)",
+        "model": "KON-5000m",
+        "note": "5000 m g'altakda",
+        "unit": "Dona",
+        "quantity": 600,
+        "department": "Tikuvchi",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 119,
+        "name": "Biriktiruvchi lenta",
+        "model": "BL-25mm",
+        "note": "Kenglik 25 mm",
+        "unit": "Metr",
+        "quantity": 500,
+        "department": "Qadoqlash",
+        "image": "/product/1.png"
+      }
     ]
   },
   {
     "id": "xojalik",
     "name": "Xo'jalik mollari",
-    "icon": "🏠",
+    "icon": "FaHome",
     "products": [
-      { "id": 200, "name": "Supurgi",               "model": "SP-Classic",     "note": "Plastik dastakli",      "unit": "Dona",     "quantity": 50,  "department": "Tozalash",  "image": "/product/2.png" },
-      { "id": 201, "name": "Lagan (plastik)",        "model": "LG-10L",         "note": "Hajmi 10 litr",         "unit": "Dona",     "quantity": 30,  "department": "Oshxona",   "image": "/product/3.png" },
-      { "id": 202, "name": "Yuvish vositasi",        "model": "Ariel 5kg",      "note": "Kiyim-kechak uchun",    "unit": "Quti",     "quantity": 40,  "department": "Tozalash",  "image": "/product/1.png" },
-      { "id": 203, "name": "Idish yuvish geli",      "model": "Fairy 1L",       "note": "Limon hidli",           "unit": "Shisha",   "quantity": 60,  "department": "Oshxona",   "image": "/product/2.png" },
-      { "id": 204, "name": "Pol yuvish vositasi",    "model": "Mr.Proper 1L",   "note": "Dezinfektsiyalovchi",   "unit": "Shisha",   "quantity": 45,  "department": "Tozalash",  "image": "/product/3.png" },
-      { "id": 205, "name": "Qo'l sovuni",            "model": "Dettol 500ml",   "note": "Antibakterial",         "unit": "Shisha",   "quantity": 100, "department": "Gigiyena",  "image": "/product/1.png" },
-      { "id": 206, "name": "Qog'oz sochiq",          "model": "KS-2ply",        "note": "2 qatlamli",            "unit": "Rulon",    "quantity": 300, "department": "Gigiyena",  "image": "/product/2.png" },
-      { "id": 207, "name": "Axlat qopi",             "model": "AQ-60L",         "note": "Qora, 60 litr",         "unit": "Dona",     "quantity": 500, "department": "Tozalash",  "image": "/product/3.png" },
-      { "id": 208, "name": "Mo'p (shvalabra)",       "model": "MP-twist",       "note": "Burama turdagi",        "unit": "Dona",     "quantity": 20,  "department": "Tozalash",  "image": "/product/1.png" },
-      { "id": 209, "name": "Chelak",                 "model": "CH-12L",         "note": "12 litr, plastik",      "unit": "Dona",     "quantity": 25,  "department": "Tozalash",  "image": "/product/2.png" },
-      { "id": 210, "name": "Ishchi qo'lqop",         "model": "QP-cotton M",    "note": "Paxta asosli",          "unit": "Juft",     "quantity": 200, "department": "Himoya",    "image": "/product/3.png" },
-      { "id": 211, "name": "Himoya niqobi",          "model": "FFP2",           "note": "Changdan himoya",       "unit": "Dona",     "quantity": 500, "department": "Himoya",    "image": "/product/1.png" },
-      { "id": 212, "name": "Xavfsizlik ko'zoynak",   "model": "KZ-clear",       "note": "Shaffof linza",         "unit": "Dona",     "quantity": 80,  "department": "Himoya",    "image": "/product/2.png" },
-      { "id": 213, "name": "Birinchi yordam sumkasi", "model": "BY-standart",    "note": "Komplektli",            "unit": "Dona",     "quantity": 15,  "department": "Tibbiyot",  "image": "/product/3.png" },
-      { "id": 214, "name": "Plastir",                "model": "PL-bactericidal", "note": "100 donali quti",      "unit": "Quti",     "quantity": 30,  "department": "Tibbiyot",  "image": "/product/1.png" },
-      { "id": 215, "name": "Antiseptik spirt",       "model": "AS-70%",         "note": "Etil spirti 70%",       "unit": "Litr",     "quantity": 20,  "department": "Tibbiyot",  "image": "/product/2.png" },
-      { "id": 216, "name": "Choy (paket)",           "model": "Lipton Yellow",  "note": "100 paketli quti",      "unit": "Quti",     "quantity": 50,  "department": "Oshxona",   "image": "/product/3.png" },
-      { "id": 217, "name": "Qand",                   "model": "QND-rafined",    "note": "Rafinlangan",           "unit": "Kg",       "quantity": 100, "department": "Oshxona",   "image": "/product/1.png" },
-      { "id": 218, "name": "Idish (stakan, shisha)", "model": "ST-200ml",       "note": "200 ml hajm",           "unit": "Dona",     "quantity": 120, "department": "Oshxona",   "image": "/product/2.png" },
-      { "id": 219, "name": "Elektr choynak",         "model": "Tefal KO120",    "note": "1.7 litr, 2400 W",      "unit": "Dona",     "quantity": 6,   "department": "Oshxona",   "image": "/product/3.png" }
+      {
+        "id": 200,
+        "name": "Supurgi",
+        "model": "SP-Classic",
+        "note": "Plastik dastakli",
+        "unit": "Dona",
+        "quantity": 50,
+        "department": "Tozalash",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 201,
+        "name": "Lagan (plastik)",
+        "model": "LG-10L",
+        "note": "Hajmi 10 litr",
+        "unit": "Dona",
+        "quantity": 30,
+        "department": "Oshxona",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 202,
+        "name": "Yuvish vositasi",
+        "model": "Ariel 5kg",
+        "note": "Kiyim-kechak uchun",
+        "unit": "Quti",
+        "quantity": 40,
+        "department": "Tozalash",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 203,
+        "name": "Idish yuvish geli",
+        "model": "Fairy 1L",
+        "note": "Limon hidli",
+        "unit": "Shisha",
+        "quantity": 60,
+        "department": "Oshxona",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 204,
+        "name": "Pol yuvish vositasi",
+        "model": "Mr.Proper 1L",
+        "note": "Dezinfektsiyalovchi",
+        "unit": "Shisha",
+        "quantity": 45,
+        "department": "Tozalash",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 205,
+        "name": "Qo'l sovuni",
+        "model": "Dettol 500ml",
+        "note": "Antibakterial",
+        "unit": "Shisha",
+        "quantity": 100,
+        "department": "Gigiyena",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 206,
+        "name": "Qog'oz sochiq",
+        "model": "KS-2ply",
+        "note": "2 qatlamli",
+        "unit": "Rulon",
+        "quantity": 300,
+        "department": "Gigiyena",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 207,
+        "name": "Axlat qopi",
+        "model": "AQ-60L",
+        "note": "Qora, 60 litr",
+        "unit": "Dona",
+        "quantity": 500,
+        "department": "Tozalash",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 208,
+        "name": "Mo'p (shvalabra)",
+        "model": "MP-twist",
+        "note": "Burama turdagi",
+        "unit": "Dona",
+        "quantity": 20,
+        "department": "Tozalash",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 209,
+        "name": "Chelak",
+        "model": "CH-12L",
+        "note": "12 litr, plastik",
+        "unit": "Dona",
+        "quantity": 25,
+        "department": "Tozalash",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 210,
+        "name": "Ishchi qo'lqop",
+        "model": "QP-cotton M",
+        "note": "Paxta asosli",
+        "unit": "Juft",
+        "quantity": 200,
+        "department": "Himoya",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 211,
+        "name": "Himoya niqobi",
+        "model": "FFP2",
+        "note": "Changdan himoya",
+        "unit": "Dona",
+        "quantity": 500,
+        "department": "Himoya",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 212,
+        "name": "Xavfsizlik ko'zoynak",
+        "model": "KZ-clear",
+        "note": "Shaffof linza",
+        "unit": "Dona",
+        "quantity": 80,
+        "department": "Himoya",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 213,
+        "name": "Birinchi yordam sumkasi",
+        "model": "BY-standart",
+        "note": "Komplektli",
+        "unit": "Dona",
+        "quantity": 15,
+        "department": "Tibbiyot",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 214,
+        "name": "Plastir",
+        "model": "PL-bactericidal",
+        "note": "100 donali quti",
+        "unit": "Quti",
+        "quantity": 30,
+        "department": "Tibbiyot",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 215,
+        "name": "Antiseptik spirt",
+        "model": "AS-70%",
+        "note": "Etil spirti 70%",
+        "unit": "Litr",
+        "quantity": 20,
+        "department": "Tibbiyot",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 216,
+        "name": "Choy (paket)",
+        "model": "Lipton Yellow",
+        "note": "100 paketli quti",
+        "unit": "Quti",
+        "quantity": 50,
+        "department": "Oshxona",
+        "image": "/product/3.png"
+      },
+      {
+        "id": 217,
+        "name": "Qand",
+        "model": "QND-rafined",
+        "note": "Rafinlangan",
+        "unit": "Kg",
+        "quantity": 100,
+        "department": "Oshxona",
+        "image": "/product/1.png"
+      },
+      {
+        "id": 218,
+        "name": "Idish (stakan, shisha)",
+        "model": "ST-200ml",
+        "note": "200 ml hajm",
+        "unit": "Dona",
+        "quantity": 120,
+        "department": "Oshxona",
+        "image": "/product/2.png"
+      },
+      {
+        "id": 219,
+        "name": "Elektr choynak",
+        "model": "Tefal KO120",
+        "note": "1.7 litr, 2400 W",
+        "unit": "Dona",
+        "quantity": 6,
+        "department": "Oshxona",
+        "image": "/product/3.png"
+      }
     ]
   }
 ]

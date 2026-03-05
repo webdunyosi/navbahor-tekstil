@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { FaBox, FaTools, FaTimes, FaPlus } from 'react-icons/fa';
 import type { Category, Product } from '../types';
+import CategoryIcon from '../components/CategoryIcon';
 
 interface AdminPageProps {
   categories: Category[];
@@ -24,7 +26,7 @@ const ProductImage = ({ src, alt, size = 'table' }: { src: string; alt: string; 
   if (error) {
     return (
       <div className={`${cls} rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/20 text-xl`}>
-        📦
+        <FaBox className="text-xl" />
       </div>
     );
   }
@@ -87,7 +89,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
 
         {/* Page Title */}
         <div className="flex items-center gap-3">
-          <span className="text-3xl">🛠️</span>
+          <FaTools className="text-3xl" />
           <div>
             <h2 className="text-2xl font-bold text-white">Admin Panel</h2>
             <p className="text-sm text-white/50">Mahsulotlarni boshqarish</p>
@@ -109,7 +111,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                       : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white border border-white/10'
                   }`}
                 >
-                  <span>{cat.icon}</span>
+                  <CategoryIcon name={cat.icon} />
                   <span>{cat.name}</span>
                   <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${isActive ? 'bg-white/20' : 'bg-white/10 text-white/50'}`}>
                     {cat.products.length}
@@ -125,7 +127,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
             {/* Panel Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <span className="text-xl">{activeCategory.icon}</span>
+                <CategoryIcon name={activeCategory.icon} className="text-xl" />
                 <h3 className="text-lg font-semibold text-white">{activeCategory.name}</h3>
                 <span className="text-sm text-white/50">{activeCategory.products.length} ta mahsulot</span>
               </div>
@@ -133,7 +135,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                 onClick={() => { setShowForm((v) => !v); setFormError(''); setForm(emptyForm()); }}
                 className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-all duration-200 shadow-lg shadow-indigo-500/30"
               >
-                <span className="text-lg leading-none">{showForm ? '✕' : '+'}</span>
+                <span className="text-lg leading-none">{showForm ? <FaTimes /> : <FaPlus />}</span>
                 <span>{showForm ? 'Bekor qilish' : 'Yangi mahsulot'}</span>
               </button>
             </div>
@@ -257,7 +259,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
             {/* Products Table */}
             {activeCategory.products.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-20 text-white/40">
-                <span className="text-5xl mb-4">📦</span>
+                <FaBox className="text-5xl mb-4" />
                 <p className="text-lg font-medium">Bu kategoriyadagi mahsulotlar yo'q</p>
                 <p className="text-sm mt-1">Yangi mahsulot qo'shish uchun yuqoridagi tugmani bosing</p>
               </div>
@@ -285,7 +287,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                             <ProductImage src={product.image} alt={product.name} />
                           ) : (
                             <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/20 text-xl">
-                              📦
+                              <FaBox className="text-xl" />
                             </div>
                           )}
                         </td>

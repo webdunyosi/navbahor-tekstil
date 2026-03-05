@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { FaTimes } from 'react-icons/fa';
 import { createPortal } from 'react-dom';
 import type { Product } from '../types';
 
@@ -31,7 +32,7 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
           className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-colors"
           aria-label="Yopish"
         >
-          ✕
+          <FaTimes />
         </button>
 
         {/* Image */}

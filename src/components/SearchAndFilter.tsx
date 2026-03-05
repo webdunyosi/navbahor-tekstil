@@ -1,3 +1,5 @@
+import { FaSearch, FaTimes, FaTags } from 'react-icons/fa';
+
 interface SearchAndFilterProps {
   searchQuery: string;
   onSearchChange: (value: string) => void;
@@ -18,7 +20,7 @@ const SearchAndFilter = ({
       {/* Search input */}
       <div className="relative flex-1">
         <span className="absolute inset-y-0 left-4 flex items-center text-white/40 pointer-events-none text-lg">
-          🔍
+          <FaSearch />
         </span>
         <input
           type="text"
@@ -32,7 +34,7 @@ const SearchAndFilter = ({
             onClick={() => onSearchChange('')}
             className="absolute inset-y-0 right-3 flex items-center text-white/40 hover:text-white/80 transition-colors"
           >
-            ✕
+            <FaTimes />
           </button>
         )}
       </div>
@@ -40,7 +42,7 @@ const SearchAndFilter = ({
       {/* Department filter */}
       <div className="relative sm:w-56">
         <span className="absolute inset-y-0 left-4 flex items-center text-white/40 pointer-events-none text-lg">
-          🏷️
+          <FaTags />
         </span>
         <select
           value={departmentFilter}

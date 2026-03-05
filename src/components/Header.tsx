@@ -1,3 +1,4 @@
+import { FaIndustry, FaClipboardList, FaTools, FaSignOutAlt } from 'react-icons/fa';
 import type { User } from '../types';
 
 interface HeaderProps {
@@ -26,7 +27,7 @@ const Header = ({ currentUser, onLogout, appView, onToggleAdminView, onMenuToggl
             </button>
           )}
           <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30 text-2xl select-none">
-            🏭
+            <FaIndustry className="text-2xl" />
           </div>
           <div>
             <h1 className="text-xl font-bold text-white leading-tight tracking-wide">
@@ -53,7 +54,7 @@ const Header = ({ currentUser, onLogout, appView, onToggleAdminView, onMenuToggl
                     : 'bg-white/10 hover:bg-indigo-500/20 border border-white/10 hover:border-indigo-400/30 text-white/70 hover:text-indigo-300'
                 }`}
               >
-                <span>{appView === 'admin' ? '📋' : '🛠️'}</span>
+                {appView === 'admin' ? <FaClipboardList /> : <FaTools />}
                 <span className="hidden sm:inline">{appView === 'admin' ? 'Asosiy sahifa' : 'Admin panel'}</span>
               </button>
             )}
@@ -69,7 +70,7 @@ const Header = ({ currentUser, onLogout, appView, onToggleAdminView, onMenuToggl
                   title="Chiqish"
                   className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-red-500/20 border border-white/10 hover:border-red-400/30 text-white/70 hover:text-red-300 text-xs font-medium transition-all duration-200"
                 >
-                  <span>🚪</span>
+                  <FaSignOutAlt />
                   <span className="hidden sm:inline">Chiqish</span>
                 </button>
               </div>
