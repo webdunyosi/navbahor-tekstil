@@ -5,11 +5,8 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import type { SidebarPage } from './components/Sidebar';
 import LoginPage from './pages/LoginPage';
-import AdminPage from './pages/AdminPage';
 import GalleryPage from './pages/GalleryPage';
 import AboutPage from './pages/AboutPage';
-
-type AppView = 'main' | 'admin';
 
 const CATEGORIES_KEY = 'categories';
 
@@ -33,39 +30,18 @@ const getStoredCategories = (): Category[] => {
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(getStoredUser);
-  const [appView, setAppView] = useState<AppView>('main');
   const [sidebarPage, setSidebarPage] = useState<SidebarPage>('gallery');
-  const [categories, setCategories] = useState<Category[]>(getStoredCategories);
+  const categories = getStoredCategories();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogin = (user: User) => setCurrentUser(user);
   const handleLogout = () => {
     localStorage.removeItem('currentUser');
     setCurrentUser(null);
-    setAppView('main');
-  };
-
-  const handleUpdateCategories = (updated: Category[]) => {
-    setCategories(updated);
-    localStorage.setItem(CATEGORIES_KEY, JSON.stringify(updated));
   };
 
   if (!currentUser) {
     return <LoginPage onLogin={handleLogin} />;
-  }
-
-  if (appView === 'admin' && currentUser.role === 'admin') {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-white">
-        <Header
-          currentUser={currentUser}
-          onLogout={handleLogout}
-          appView={appView}
-          onToggleAdminView={() => setAppView('main')}
-        />
-        <AdminPage categories={categories} onUpdateCategories={handleUpdateCategories} />
-      </div>
-    );
   }
 
   return (
@@ -73,8 +49,6 @@ const App = () => {
       <Header
         currentUser={currentUser}
         onLogout={handleLogout}
-        appView={appView}
-        onToggleAdminView={currentUser.role === 'admin' ? () => setAppView('admin') : undefined}
         onMenuToggle={() => setSidebarOpen((prev) => !prev)}
       />
 
