@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import categories from './data/data.json';
-import type { User } from './types';
+import initialCategories from './data/data.json';
+import type { Category, User } from './types';
 import Header from './components/Header';
 import StatsCards from './components/StatsCards';
 import CategoryTabs from './components/CategoryTabs';
@@ -8,8 +8,12 @@ import SearchAndFilter from './components/SearchAndFilter';
 import ProductTable from './components/ProductTable';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import AdminPage from './pages/AdminPage';
 
 type AuthView = 'login' | 'register';
+type AppView = 'main' | 'admin';
+
+const CATEGORIES_KEY = 'categories';
 
 const getStoredUser = (): User | null => {
   try {
@@ -20,9 +24,20 @@ const getStoredUser = (): User | null => {
   }
 };
 
+const getStoredCategories = (): Category[] => {
+  try {
+    const raw = localStorage.getItem(CATEGORIES_KEY);
+    return raw ? (JSON.parse(raw) as Category[]) : (initialCategories as Category[]);
+  } catch {
+    return initialCategories as Category[];
+  }
+};
+
 const App = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(getStoredUser);
   const [authView, setAuthView] = useState<AuthView>('login');
+  const [appView, setAppView] = useState<AppView>('main');
+  const [categories, setCategories] = useState<Category[]>(getStoredCategories);
   const [activeCategory, setActiveCategory] = useState('tayorlov');
   const [searchQuery, setSearchQuery] = useState('');
   const [departmentFilter, setDepartmentFilter] = useState('');
@@ -33,6 +48,12 @@ const App = () => {
     localStorage.removeItem('currentUser');
     setCurrentUser(null);
     setAuthView('login');
+    setAppView('main');
+  };
+
+  const handleUpdateCategories = (updated: Category[]) => {
+    setCategories(updated);
+    localStorage.setItem(CATEGORIES_KEY, JSON.stringify(updated));
   };
 
   if (!currentUser) {
@@ -43,7 +64,25 @@ const App = () => {
     );
   }
 
-  const currentCategory = categories.find((c) => c.id === activeCategory)!;
+  if (appView === 'admin' && currentUser.role === 'admin') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-white">
+        <Header
+          currentUser={currentUser}
+          onLogout={handleLogout}
+          appView={appView}
+          onToggleAdminView={() => setAppView('main')}
+        />
+        <AdminPage categories={categories} onUpdateCategories={handleUpdateCategories} />
+      </div>
+    );
+  }
+
+  const currentCategory = categories.find((c) => c.id === activeCategory) ?? categories[0];
+
+  if (!currentCategory) {
+    return null;
+  }
 
   const departments = [...new Set(currentCategory.products.map((p) => p.department))].sort();
 
@@ -67,7 +106,12 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-white">
-      <Header currentUser={currentUser} onLogout={handleLogout} />
+      <Header
+        currentUser={currentUser}
+        onLogout={handleLogout}
+        appView={appView}
+        onToggleAdminView={currentUser.role === 'admin' ? () => setAppView('admin') : undefined}
+      />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
         {/* Stats */}
