@@ -44,7 +44,7 @@ const Header = ({ currentUser, onLogout, appView, onToggleAdminView, onMenuToggl
               <span className="text-emerald-300 text-xs font-medium">Jonli</span>
             </div>
 
-            {currentUser && onToggleAdminView && (
+            {onToggleAdminView && (
               <button
                 onClick={onToggleAdminView}
                 title={appView === 'admin' ? 'Asosiy sahifa' : 'Admin panel'}

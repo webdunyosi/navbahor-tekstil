@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { FaIndustry } from 'react-icons/fa6';
+import { FaIndustry, FaArrowLeft } from 'react-icons/fa6';
 import type { User } from '../types';
 import initialUsers from '../data/users.json';
 
 interface LoginPageProps {
   onLogin: (user: User) => void;
+  onCancel?: () => void;
 }
 
-const LoginPage = ({ onLogin }: LoginPageProps) => {
+const LoginPage = ({ onLogin, onCancel }: LoginPageProps) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -50,7 +51,20 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
 
         {/* Card */}
         <div className="rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl p-8">
-          <h2 className="text-xl font-semibold text-white mb-6">Tizimga kirish</h2>
+          <div className="flex items-center gap-3 mb-6">
+            {onCancel && (
+              <button
+                type="button"
+                onClick={onCancel}
+                title="Orqaga"
+                className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 border border-white/10 text-white/70 hover:text-white transition-all duration-200"
+                aria-label="Orqaga qaytish"
+              >
+                <FaArrowLeft />
+              </button>
+            )}
+            <h2 className="text-xl font-semibold text-white">Tizimga kirish</h2>
+          </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
