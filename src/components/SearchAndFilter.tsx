@@ -1,3 +1,5 @@
+import { FaMagnifyingGlass, FaTag, FaXmark, FaChevronDown } from 'react-icons/fa6';
+
 interface SearchAndFilterProps {
   searchQuery: string;
   onSearchChange: (value: string) => void;
@@ -17,8 +19,8 @@ const SearchAndFilter = ({
     <div className="flex flex-col sm:flex-row gap-3">
       {/* Search input */}
       <div className="relative flex-1">
-        <span className="absolute inset-y-0 left-4 flex items-center text-white/40 pointer-events-none text-lg">
-          🔍
+        <span className="absolute inset-y-0 left-4 flex items-center text-white/40 pointer-events-none">
+          <FaMagnifyingGlass className="text-lg" />
         </span>
         <input
           type="text"
@@ -32,15 +34,15 @@ const SearchAndFilter = ({
             onClick={() => onSearchChange('')}
             className="absolute inset-y-0 right-3 flex items-center text-white/40 hover:text-white/80 transition-colors"
           >
-            ✕
+            <FaXmark />
           </button>
         )}
       </div>
 
       {/* Department filter */}
       <div className="relative sm:w-56">
-        <span className="absolute inset-y-0 left-4 flex items-center text-white/40 pointer-events-none text-lg">
-          🏷️
+        <span className="absolute inset-y-0 left-4 flex items-center text-white/40 pointer-events-none">
+          <FaTag className="text-lg" />
         </span>
         <select
           value={departmentFilter}
@@ -55,7 +57,7 @@ const SearchAndFilter = ({
           ))}
         </select>
         <span className="absolute inset-y-0 right-3 flex items-center text-white/40 pointer-events-none text-xs">
-          ▼
+          <FaChevronDown />
         </span>
       </div>
     </div>
