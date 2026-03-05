@@ -1,0 +1,27 @@
+const Header = () => {
+  return (
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/5 border-b border-white/10 shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-4 py-4">
+          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30 text-2xl select-none">
+            🏭
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-white leading-tight tracking-wide">
+              Navbahor Tekstil
+            </h1>
+            <p className="text-xs text-indigo-300 font-medium tracking-widest uppercase">
+              Ombor boshqaruv tizimi
+            </p>
+          </div>
+          <div className="ml-auto hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 border border-emerald-400/30">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="text-emerald-300 text-xs font-medium">Jonli</span>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
