@@ -14,3 +14,11 @@ export interface Category {
   icon: string;
   products: Product[];
 }
+
+export interface User {
+  id: number | string;
+  username: string;
+  password: string;
+  role: 'admin' | 'user';
+  name: string;
+}
