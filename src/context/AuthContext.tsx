@@ -1,7 +1,15 @@
-import { useState, useEffect, type ReactNode } from 'react';
+import { useState, useEffect, createContext, type ReactNode } from 'react';
 import type { User } from '../types';
 import initialUsers from '../data/users.json';
-import { AuthContext } from './authContext';
+
+export interface AuthContextValue {
+  currentUser: User | null;
+  login: (username: string, password: string) => { ok: boolean; error?: string };
+  register: (username: string, password: string, name: string) => { ok: boolean; error?: string };
+  logout: () => void;
+}
+
+export const AuthContext = createContext<AuthContextValue | null>(null);
 
 const STORAGE_KEY = 'navbahor_users';
 const SESSION_KEY = 'navbahor_session';
