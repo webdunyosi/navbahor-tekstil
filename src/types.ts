@@ -6,6 +6,7 @@ export interface Product {
   unit: string;       // O'lchov birligi
   quantity: number;   // Soni
   department: string; // Bo'limi
+  image?: string;     // Rasm yo'li
 }
 
 export interface Category {
