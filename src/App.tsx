@@ -5,12 +5,10 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import type { SidebarPage } from './components/Sidebar';
 import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
 import AdminPage from './pages/AdminPage';
 import GalleryPage from './pages/GalleryPage';
 import AboutPage from './pages/AboutPage';
 
-type AuthView = 'login' | 'register';
 type AppView = 'main' | 'admin';
 
 const CATEGORIES_KEY = 'categories';
@@ -35,18 +33,15 @@ const getStoredCategories = (): Category[] => {
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(getStoredUser);
-  const [authView, setAuthView] = useState<AuthView>('login');
   const [appView, setAppView] = useState<AppView>('main');
   const [sidebarPage, setSidebarPage] = useState<SidebarPage>('gallery');
   const [categories, setCategories] = useState<Category[]>(getStoredCategories);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogin = (user: User) => setCurrentUser(user);
-  const handleRegister = (user: User) => setCurrentUser(user);
   const handleLogout = () => {
     localStorage.removeItem('currentUser');
     setCurrentUser(null);
-    setAuthView('login');
     setAppView('main');
   };
 
@@ -56,11 +51,7 @@ const App = () => {
   };
 
   if (!currentUser) {
-    return authView === 'login' ? (
-      <LoginPage onLogin={handleLogin} onGoRegister={() => setAuthView('register')} />
-    ) : (
-      <RegisterPage onRegister={handleRegister} onGoLogin={() => setAuthView('login')} />
-    );
+    return <LoginPage onLogin={handleLogin} />;
   }
 
   if (appView === 'admin' && currentUser.role === 'admin') {
