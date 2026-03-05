@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       return { ok: false, error: 'Bu foydalanuvchi nomi allaqachon band' };
     }
     const newUser: User = {
-      id: Date.now(),
+      id: crypto.randomUUID ? parseInt(crypto.randomUUID().replace(/-/g, '').slice(0, 8), 16) : Date.now(),
       username: username.trim(),
       password,
       role: 'user',

@@ -21,8 +21,8 @@ const RegisterPage = ({ onNavigate }: RegisterPageProps) => {
       setError("Login va parolni to'ldiring");
       return;
     }
-    if (password.length < 6) {
-      setError("Parol kamida 6 ta belgidan iborat bo'lishi kerak");
+    if (password.length < 8) {
+      setError("Parol kamida 8 ta belgidan iborat bo'lishi kerak");
       return;
     }
     if (password !== confirm) {
@@ -102,7 +102,7 @@ const RegisterPage = ({ onNavigate }: RegisterPageProps) => {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="parol kiriting (min 6 belgi)"
+                  placeholder="parol kiriting (min 8 belgi)"
                   autoComplete="new-password"
                   className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/30 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-400/60 transition-all duration-200"
                 />

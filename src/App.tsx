@@ -42,12 +42,13 @@ const MainApp = () => {
     localStorage.setItem(PRODUCTS_KEY, JSON.stringify(categories));
   }, [categories]);
 
-  // Redirect non-admins away from admin page - derive displayed page
-  const effectiveAppPage: AppPage =
-    appPage === 'admin' && currentUser?.role !== 'admin' ? 'main' : appPage;
+  const isAdmin = currentUser?.role === 'admin';
+
+  // Resolve the displayed page: non-admins cannot see admin page
+  const effectiveAppPage: AppPage = appPage === 'admin' && !isAdmin ? 'main' : appPage;
 
   const handleNavigate = (page: AppPage) => {
-    if (page === 'admin' && currentUser?.role !== 'admin') return;
+    if (page === 'admin' && !isAdmin) return;
     setAppPage(page);
   };
 
@@ -98,7 +99,7 @@ const MainApp = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-white">
       <Header currentPage={effectiveAppPage} onNavigate={handleNavigate} />
 
-      {effectiveAppPage === 'admin' && currentUser?.role === 'admin' ? (
+      {effectiveAppPage === 'admin' && isAdmin ? (
         <AdminPage categories={categories} onUpdate={handleCategoriesUpdate} />
       ) : (
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">

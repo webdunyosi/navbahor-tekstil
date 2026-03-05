@@ -16,6 +16,13 @@ interface ProductForm {
   department: string;
 }
 
+interface ConfirmState {
+  show: boolean;
+  catId: string;
+  productId: number;
+  productName: string;
+}
+
 const emptyForm = (categoryId: string): ProductForm => ({
   categoryId,
   name: '',
@@ -37,6 +44,7 @@ const AdminPage = ({ categories, onUpdate }: AdminPageProps) => {
   const [formSuccess, setFormSuccess] = useState('');
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editQuantity, setEditQuantity] = useState('');
+  const [confirm, setConfirm] = useState<ConfirmState>({ show: false, catId: '', productId: 0, productName: '' });
 
   const currentCat = useMemo(
     () => categories.find((c) => c.id === filterCatId),
@@ -100,12 +108,20 @@ const AdminPage = ({ categories, onUpdate }: AdminPageProps) => {
     setTimeout(() => setFormSuccess(''), 3000);
   };
 
-  const handleDelete = (catId: string, productId: number) => {
-    if (!confirm("Mahsulotni o'chirishni tasdiqlaysizmi?")) return;
+  const requestDelete = (catId: string, productId: number, productName: string) => {
+    setConfirm({ show: true, catId, productId, productName });
+  };
+
+  const confirmDelete = () => {
     const updated = categories.map((c) =>
-      c.id === catId ? { ...c, products: c.products.filter((p) => p.id !== productId) } : c
+      c.id === confirm.catId ? { ...c, products: c.products.filter((p) => p.id !== confirm.productId) } : c
     );
     onUpdate(updated);
+    setConfirm({ show: false, catId: '', productId: 0, productName: '' });
+  };
+
+  const cancelDelete = () => {
+    setConfirm({ show: false, catId: '', productId: 0, productName: '' });
   };
 
   const handleSaveQuantity = (catId: string, productId: number) => {
@@ -260,7 +276,7 @@ const AdminPage = ({ categories, onUpdate }: AdminPageProps) => {
                       </td>
                       <td className="px-4 py-3 border-b border-white/5 whitespace-nowrap">
                         <button
-                          onClick={() => handleDelete(filterCatId, p.id)}
+                          onClick={() => requestDelete(filterCatId, p.id, p.name)}
                           className="px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/40 text-red-300 text-xs font-medium transition-colors"
                         >
                           🗑 O'chirish
@@ -402,6 +418,35 @@ const AdminPage = ({ categories, onUpdate }: AdminPageProps) => {
             >
               Tozalash
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Delete confirmation modal */}
+      {confirm.show && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+          <div className="w-full max-w-sm rounded-2xl bg-slate-900 border border-white/10 shadow-2xl p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-3xl">🗑️</span>
+              <h3 className="text-lg font-semibold text-white">Mahsulotni o'chirish</h3>
+            </div>
+            <p className="text-white/70 text-sm mb-6">
+              <span className="text-white font-medium">"{confirm.productName}"</span> mahsulotini o'chirishni tasdiqlaysizmi? Bu amalni qaytarib bo'lmaydi.
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={confirmDelete}
+                className="flex-1 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-semibold text-sm transition-all duration-200"
+              >
+                Ha, o'chirish
+              </button>
+              <button
+                onClick={cancelDelete}
+                className="flex-1 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white/70 font-medium text-sm transition-all border border-white/10"
+              >
+                Bekor qilish
+              </button>
+            </div>
           </div>
         </div>
       )}
