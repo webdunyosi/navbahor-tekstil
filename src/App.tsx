@@ -2,13 +2,13 @@ import { useState } from 'react';
 import initialCategories from './data/data.json';
 import type { Category, User } from './types';
 import Header from './components/Header';
-import StatsCards from './components/StatsCards';
-import CategoryTabs from './components/CategoryTabs';
-import SearchAndFilter from './components/SearchAndFilter';
-import ProductTable from './components/ProductTable';
+import Sidebar from './components/Sidebar';
+import type { SidebarPage } from './components/Sidebar';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import AdminPage from './pages/AdminPage';
+import GalleryPage from './pages/GalleryPage';
+import AboutPage from './pages/AboutPage';
 
 type AuthView = 'login' | 'register';
 type AppView = 'main' | 'admin';
@@ -37,10 +37,8 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(getStoredUser);
   const [authView, setAuthView] = useState<AuthView>('login');
   const [appView, setAppView] = useState<AppView>('main');
+  const [sidebarPage, setSidebarPage] = useState<SidebarPage>('gallery');
   const [categories, setCategories] = useState<Category[]>(getStoredCategories);
-  const [activeCategory, setActiveCategory] = useState('tayorlov');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [departmentFilter, setDepartmentFilter] = useState('');
 
   const handleLogin = (user: User) => setCurrentUser(user);
   const handleRegister = (user: User) => setCurrentUser(user);
@@ -78,32 +76,6 @@ const App = () => {
     );
   }
 
-  const currentCategory = categories.find((c) => c.id === activeCategory) ?? categories[0];
-
-  if (!currentCategory) {
-    return null;
-  }
-
-  const departments = [...new Set(currentCategory.products.map((p) => p.department))].sort();
-
-  const filteredProducts = (() => {
-    const q = searchQuery.toLowerCase().trim();
-    return currentCategory.products.filter((p) => {
-      const matchesSearch = !q || p.name.toLowerCase().includes(q) || p.model.toLowerCase().includes(q);
-      const matchesDept = !departmentFilter || p.department === departmentFilter;
-      return matchesSearch && matchesDept;
-    });
-  })();
-
-  const totalQuantity = filteredProducts.reduce((sum, p) => sum + p.quantity, 0);
-  const departmentsCount = new Set(filteredProducts.map((p) => p.department)).size;
-
-  const handleCategorySelect = (id: string) => {
-    setActiveCategory(id);
-    setSearchQuery('');
-    setDepartmentFilter('');
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-white">
       <Header
@@ -113,48 +85,19 @@ const App = () => {
         onToggleAdminView={currentUser.role === 'admin' ? () => setAppView('admin') : undefined}
       />
 
-      <main className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-        {/* Stats */}
-        <StatsCards
-          totalProducts={filteredProducts.length}
-          totalQuantity={totalQuantity}
-          departmentsCount={departmentsCount}
-        />
+      <div className="flex">
+        <Sidebar activePage={sidebarPage} onPageChange={setSidebarPage} />
 
-        {/* Category tabs */}
-        <div className="p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
-          <CategoryTabs
-            categories={categories}
-            activeId={activeCategory}
-            onSelect={handleCategorySelect}
-          />
-        </div>
+        <main className="flex-1 px-4 sm:px-6 lg:px-8 py-8 space-y-6 min-w-0">
+          {sidebarPage === 'gallery' && (
+            <GalleryPage categories={categories} />
+          )}
 
-        {/* Search & filter */}
-        <div className="p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
-          <SearchAndFilter
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            departmentFilter={departmentFilter}
-            onDepartmentChange={setDepartmentFilter}
-            departments={departments}
-          />
-        </div>
-
-        {/* Table panel */}
-        <div className="rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 overflow-hidden shadow-2xl">
-          <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
-            <div className="flex items-center gap-3">
-              <span className="text-xl">{currentCategory.icon}</span>
-              <h2 className="text-lg font-semibold text-white">{currentCategory.name}</h2>
-            </div>
-            <span className="text-sm text-white/50">
-              {filteredProducts.length} ta mahsulot
-            </span>
-          </div>
-          <ProductTable products={filteredProducts} />
-        </div>
-      </main>
+          {sidebarPage === 'about' && (
+            <AboutPage categories={categories} />
+          )}
+        </main>
+      </div>
     </div>
   );
 };
