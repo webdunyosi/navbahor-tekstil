@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { FaXmark } from 'react-icons/fa6';
 import type { Product } from '../types';
 
 interface ProductModalProps {
@@ -31,7 +32,7 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
           className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-colors"
           aria-label="Yopish"
         >
-          ✕
+          <FaXmark />
         </button>
 
         {/* Image */}

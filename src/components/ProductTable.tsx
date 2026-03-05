@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { FaMagnifyingGlass, FaBox } from 'react-icons/fa6';
 import type { Product } from '../types';
 import ProductModal from './ProductModal';
 
@@ -13,7 +14,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-white/40">
-        <span className="text-5xl mb-4">🔎</span>
+        <FaMagnifyingGlass className="text-5xl mb-4" />
         <p className="text-lg font-medium">Mahsulot topilmadi</p>
         <p className="text-sm mt-1">Qidiruv yoki filtrni o'zgartiring</p>
       </div>
@@ -38,8 +39,8 @@ const ProductTable = ({ products }: ProductTableProps) => {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-white/20 text-4xl">
-                📦
+              <div className="w-full h-full flex items-center justify-center text-white/20">
+                <FaBox className="text-4xl" />
               </div>
             )}
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end p-2">

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaIndustry } from 'react-icons/fa6';
 import type { User } from '../types';
 import initialUsers from '../data/users.json';
 
@@ -36,8 +37,8 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="flex flex-col items-center mb-8 gap-3">
-          <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30 text-3xl select-none">
-            🏭
+          <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/30 select-none">
+            <FaIndustry className="text-white text-3xl" />
           </div>
           <div className="text-center">
             <h1 className="text-2xl font-bold text-white">Navbahor Tekstil</h1>

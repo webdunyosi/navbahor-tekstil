@@ -1,4 +1,5 @@
 import type { Category } from '../types';
+import CategoryIcon from './CategoryIcon';
 
 interface CategoryTabsProps {
   categories: Category[];
@@ -23,7 +24,7 @@ const CategoryTabs = ({ categories, activeId, onSelect }: CategoryTabsProps) => 
               }
             `}
           >
-            <span className="text-base">{cat.icon}</span>
+            <CategoryIcon name={cat.icon} className="text-base" />
             <span>{cat.name}</span>
             <span
               className={`
