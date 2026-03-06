@@ -19,7 +19,7 @@ const SearchAndFilter = ({
     <div className="flex flex-col sm:flex-row gap-3">
       {/* Search input */}
       <div className="relative flex-1">
-        <span className="absolute inset-y-0 left-4 flex items-center text-white/40 pointer-events-none">
+        <span className="absolute inset-y-0 left-4 flex items-center text-white/60 pointer-events-none z-10">
           <FaMagnifyingGlass className="text-lg" />
         </span>
         <input
@@ -27,12 +27,12 @@ const SearchAndFilter = ({
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Mahsulot nomi yoki modeli bo'yicha qidiring..."
-          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/30 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-400/60 transition-all duration-200"
+          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-400/60 transition-all duration-200"
         />
         {searchQuery && (
           <button
             onClick={() => onSearchChange('')}
-            className="absolute inset-y-0 right-3 flex items-center text-white/40 hover:text-white/80 transition-colors"
+            className="absolute inset-y-0 right-3 flex items-center text-white/50 hover:text-white/80 transition-colors"
           >
             <FaXmark />
           </button>
@@ -41,7 +41,7 @@ const SearchAndFilter = ({
 
       {/* Department filter */}
       <div className="relative sm:w-56">
-        <span className="absolute inset-y-0 left-4 flex items-center text-white/40 pointer-events-none">
+        <span className="absolute inset-y-0 left-4 flex items-center text-white/60 pointer-events-none z-10">
           <FaTag className="text-lg" />
         </span>
         <select
@@ -56,7 +56,7 @@ const SearchAndFilter = ({
             </option>
           ))}
         </select>
-        <span className="absolute inset-y-0 right-3 flex items-center text-white/40 pointer-events-none text-xs">
+        <span className="absolute inset-y-0 right-3 flex items-center text-white/60 pointer-events-none text-xs z-10">
           <FaChevronDown />
         </span>
       </div>
