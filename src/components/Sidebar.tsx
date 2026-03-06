@@ -20,12 +20,13 @@ const Sidebar = ({ activePage, onPageChange, isOpen, onClose, onToggleAdminView 
   return (
     <>
       {/* Mobile overlay backdrop */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-black/50 sm:hidden"
-          onClick={onClose}
-        />
-      )}
+      <div
+        aria-hidden={!isOpen}
+        className={`fixed inset-0 z-30 bg-black/50 sm:hidden transition-opacity duration-500 ease-in-out ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={onClose}
+      />
 
       <aside
         className={`
@@ -36,7 +37,7 @@ const Sidebar = ({ activePage, onPageChange, isOpen, onClose, onToggleAdminView 
           border-r border-white/10
           flex flex-col gap-2 py-6 px-4
           overflow-y-auto
-          transition-transform duration-300 ease-in-out
+          transition-transform duration-500 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           ${!isOpen ? 'sm:hidden' : ''}
         `}
