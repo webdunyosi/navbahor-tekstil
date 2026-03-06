@@ -1,6 +1,8 @@
 export interface Product {
   id: number;
-  name: string;       // Maxsulot nomi
+  name: string;       // Maxsulot nomi (o'zbekcha)
+  name_ru?: string;   // Maxsulot nomi (ruscha)
+  name_tr?: string;   // Maxsulot nomi (turkcha)
   bukum?: number;     // Tokchadagi o'rni (shelf number)
   model: string;      // Maxsulot modeli
   note: string;       // Izoh
