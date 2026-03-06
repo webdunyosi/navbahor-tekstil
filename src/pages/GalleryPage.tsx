@@ -68,7 +68,7 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
     <>
       <div className="space-y-3">
         {/* Category tabs and search/filter side by side */}
-        <div className="flex flex-col lg:flex-row gap-3 items-start">
+        <div className="flex flex-row gap-2 items-start">
           <div className="flex-1 min-w-0">
             <CategoryTabs
               categories={tabCategories}
@@ -76,7 +76,7 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
               onSelect={handleTabChange}
             />
           </div>
-          <div className="w-full lg:w-auto lg:shrink-0">
+          <div className="shrink-0">
             <SearchAndFilter
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
