@@ -66,7 +66,7 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
 
   return (
     <>
-      <div className="space-y-4">
+      <div className="space-y-2">
         {/* Category tabs */}
         <CategoryTabs
           categories={tabCategories}
@@ -83,7 +83,7 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
           departments={departments}
         />
 
-        <div className="rounded-2xl overflow-hidden shadow-2xl">
+        <div className="rounded-sm overflow-hidden shadow-2xl">
           {filteredProducts.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 text-white/40 bg-white/5">
               <FaMagnifyingGlass className="text-4xl mb-3" />
