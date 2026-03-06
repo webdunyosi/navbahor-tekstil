@@ -7,6 +7,8 @@
       {
         "id": 1,
         "name": "Izolenta",
+        "name_ru": "Изолента",
+        "name_tr": "İzolant bant",
         "bukum": 358,
         "model": "PVC-19mm",
         "note": "Qora rangli",
@@ -18,6 +20,8 @@
       {
         "id": 2,
         "name": "Rulonlar",
+        "name_ru": "Рулоны",
+        "name_tr": "Rulolar",
         "bukum": 359,
         "model": "R-500",
         "note": "Zaxira",
@@ -29,6 +33,8 @@
       {
         "id": 3,
         "name": "Moslama (kressel)",
+        "name_ru": "Приспособление (кресло)",
+        "name_tr": "Aparat (koltuk)",
         "bukum": 360,
         "model": "KR-200",
         "note": "Metall qotishma",
@@ -40,6 +46,8 @@
       {
         "id": 4,
         "name": "Vinch",
+        "name_ru": "Лебёдка",
+        "name_tr": "Vinç",
         "bukum": 361,
         "model": "VN-5T",
         "note": "5 tonna ko'tarish",
@@ -51,6 +59,8 @@
       {
         "id": 5,
         "name": "Shkiv",
+        "name_ru": "Шкив",
+        "name_tr": "Kasnak",
         "bukum": 362,
         "model": "ShK-300",
         "note": "D=300 mm",
@@ -62,6 +72,8 @@
       {
         "id": 6,
         "name": "Tasma (klinli)",
+        "name_ru": "Ремень (клиновой)",
+        "name_tr": "Kayış (kama)",
         "bukum": 363,
         "model": "A-1000",
         "note": "Uzunligi 1000 mm",
@@ -73,6 +85,8 @@
       {
         "id": 7,
         "name": "Moy filtri",
+        "name_ru": "Масляный фильтр",
+        "name_tr": "Yağ filtresi",
         "bukum": 364,
         "model": "MF-40",
         "note": "Almashtirish muddati",
@@ -84,6 +98,8 @@
       {
         "id": 8,
         "name": "Podshipnik",
+        "name_ru": "Подшипник",
+        "name_tr": "Rulman",
         "bukum": 365,
         "model": "6205-2RS",
         "note": "Yopiq turdagi",
@@ -95,6 +111,8 @@
       {
         "id": 9,
         "name": "Elektr kabeli",
+        "name_ru": "Электрический кабель",
+        "name_tr": "Elektrik kablosu",
         "bukum": 366,
         "model": "ВВГНГ 3x2.5",
         "note": "Yong'inga chidamli",
@@ -106,6 +124,8 @@
       {
         "id": 10,
         "name": "Pnevmatik shlang",
+        "name_ru": "Пневматический шланг",
+        "name_tr": "Pnömatik hortum",
         "bukum": 367,
         "model": "PSh-12",
         "note": "D=12 mm",
@@ -117,6 +137,8 @@
       {
         "id": 11,
         "name": "Murvat to'plami",
+        "name_ru": "Набор болтов",
+        "name_tr": "Cıvata seti",
         "bukum": 368,
         "model": "M8x30 DIN933",
         "note": "Mis qoplamali",
@@ -128,6 +150,8 @@
       {
         "id": 12,
         "name": "Elektr motori",
+        "name_ru": "Электродвигатель",
+        "name_tr": "Elektrik motoru",
         "bukum": 369,
         "model": "АИР90L4",
         "note": "2.2 kW, 1500 ayl/min",
@@ -139,6 +163,8 @@
       {
         "id": 13,
         "name": "Gidravlik nasos",
+        "name_ru": "Гидравлический насос",
+        "name_tr": "Hidrolik pompa",
         "bukum": 370,
         "model": "GN-PH-40",
         "note": "Yog' bosimi 200 bar",
@@ -150,6 +176,8 @@
       {
         "id": 14,
         "name": "Konveyer lentasi",
+        "name_ru": "Конвейерная лента",
+        "name_tr": "Konveyör bandı",
         "bukum": 371,
         "model": "KL-800",
         "note": "Kenglik 800 mm",
@@ -161,6 +189,8 @@
       {
         "id": 15,
         "name": "Reduktor",
+        "name_ru": "Редуктор",
+        "name_tr": "Redüktör",
         "bukum": 372,
         "model": "RD-50-40",
         "note": "Kamaytirish nisbati 40",
@@ -172,6 +202,8 @@
       {
         "id": 16,
         "name": "Manometr",
+        "name_ru": "Манометр",
+        "name_tr": "Manometre",
         "bukum": 373,
         "model": "MAN-100",
         "note": "0–250 bar diapazoni",
@@ -183,6 +215,8 @@
       {
         "id": 17,
         "name": "Avariya tormozi",
+        "name_ru": "Аварийный тормоз",
+        "name_tr": "Acil fren",
         "bukum": 374,
         "model": "AT-200",
         "note": "Elektromagnitli",
@@ -194,6 +228,8 @@
       {
         "id": 18,
         "name": "Zanjir (rollika)",
+        "name_ru": "Цепь (роликовая)",
+        "name_tr": "Zincir (makaralı)",
         "bukum": 375,
         "model": "08B-1",
         "note": "Uzunligi 3 metr",
@@ -205,6 +241,8 @@
       {
         "id": 19,
         "name": "Sensor (harorat)",
+        "name_ru": "Датчик (температуры)",
+        "name_tr": "Sensör (sıcaklık)",
         "bukum": 376,
         "model": "PT100",
         "note": "–50 dan +200 °C",
@@ -216,6 +254,8 @@
       {
         "id": 20,
         "name": "Havo kompressori",
+        "name_ru": "Воздушный компрессор",
+        "name_tr": "Hava kompresörü",
         "bukum": 377,
         "model": "HK-750L",
         "note": "7.5 kW, 750 l/min",
@@ -234,6 +274,8 @@
       {
         "id": 100,
         "name": "Tikuv mashinasi",
+        "name_ru": "Швейная машина",
+        "name_tr": "Dikiş makinesi",
         "bukum": 201,
         "model": "JUKI DDL-8700",
         "note": "Sanoat darajasi",
@@ -245,6 +287,8 @@
       {
         "id": 101,
         "name": "Ip (paxta, oq)",
+        "name_ru": "Нить (хлопок, белая)",
+        "name_tr": "İplik (pamuk, beyaz)",
         "bukum": 202,
         "model": "Ne 40/2",
         "note": "1 kg g'altakda",
@@ -256,6 +300,8 @@
       {
         "id": 102,
         "name": "Ip (paxta, rang)",
+        "name_ru": "Нить (хлопок, цветная)",
+        "name_tr": "İplik (pamuk, renkli)",
         "bukum": 203,
         "model": "Ne 40/2 R",
         "note": "Aralash rang",
@@ -267,6 +313,8 @@
       {
         "id": 103,
         "name": "Tugma (plastik)",
+        "name_ru": "Пуговица (пластик)",
+        "name_tr": "Düğme (plastik)",
         "bukum": 204,
         "model": "TG-18mm",
         "note": "4 teshikli",
@@ -278,6 +326,8 @@
       {
         "id": 104,
         "name": "Fermuvar",
+        "name_ru": "Молния",
+        "name_tr": "Fermuar",
         "bukum": 205,
         "model": "YKK-50cm",
         "note": "Ranglar aralash",
@@ -289,6 +339,8 @@
       {
         "id": 105,
         "name": "Ip (polyester)",
+        "name_ru": "Нить (полиэстер)",
+        "name_tr": "İplik (polyester)",
         "bukum": 206,
         "model": "120D/2",
         "note": "Mustahkam tikuv uchun",
@@ -300,6 +352,8 @@
       {
         "id": 106,
         "name": "Tikuv ignasi",
+        "name_ru": "Швейная игла",
+        "name_tr": "Dikiş iğnesi",
         "bukum": 207,
         "model": "DBx1 №14",
         "note": "JUKI uchun mos",
@@ -311,6 +365,8 @@
       {
         "id": 107,
         "name": "Mato (paxta, oq)",
+        "name_ru": "Ткань (хлопок, белая)",
+        "name_tr": "Kumaş (pamuk, beyaz)",
         "bukum": 208,
         "model": "40x40/133x72",
         "note": "Kenglik 150 sm",
@@ -322,6 +378,8 @@
       {
         "id": 108,
         "name": "Mato (rangli)",
+        "name_ru": "Ткань (цветная)",
+        "name_tr": "Kumaş (renkli)",
         "bukum": 209,
         "model": "30x30/110x76",
         "note": "Kenglik 150 sm",
@@ -333,6 +391,8 @@
       {
         "id": 109,
         "name": "Kesish mashinasi",
+        "name_ru": "Раскроечная машина",
+        "name_tr": "Kesim makinesi",
         "bukum": 210,
         "model": "Eastman 627X",
         "note": "Yumaloq pichoq",
@@ -344,6 +404,8 @@
       {
         "id": 110,
         "name": "Yelim (termal)",
+        "name_ru": "Клей (термальный)",
+        "name_tr": "Yapıştırıcı (termal)",
         "bukum": 211,
         "model": "HM-Glue 200g",
         "note": "Yukori haroratli",
@@ -355,6 +417,8 @@
       {
         "id": 111,
         "name": "Kalit (qopqa uchun)",
+        "name_ru": "Замок (для крышки)",
+        "name_tr": "Kilit (kapak için)",
         "bukum": 212,
         "model": "KKL-10",
         "note": "Plastik qopqa",
@@ -366,6 +430,8 @@
       {
         "id": 112,
         "name": "Yorliq (teg)",
+        "name_ru": "Ярлык (бирка)",
+        "name_tr": "Etiket",
         "bukum": 213,
         "model": "YR-50x30mm",
         "note": "Shtrix-kod bosilgan",
@@ -377,6 +443,8 @@
       {
         "id": 113,
         "name": "Qadoq qop",
+        "name_ru": "Упаковочный мешок",
+        "name_tr": "Ambalaj torbası",
         "bukum": 214,
         "model": "PP-50x80",
         "note": "Polipropilen",
@@ -388,6 +456,8 @@
       {
         "id": 114,
         "name": "Ip kesgich",
+        "name_ru": "Нитеобрезчик",
+        "name_tr": "İplik kesici",
         "bukum": 215,
         "model": "IK-manual",
         "note": "Qo'l uchun",
@@ -399,6 +469,8 @@
       {
         "id": 115,
         "name": "Bosma trubka",
+        "name_ru": "Печатная трубка",
+        "name_tr": "Baskı borusu",
         "bukum": 216,
         "model": "BT-Ø8mm",
         "note": "Alyuminiy",
@@ -410,6 +482,8 @@
       {
         "id": 116,
         "name": "Planshet (shablon)",
+        "name_ru": "Планшет (шаблон)",
+        "name_tr": "Şablon",
         "bukum": 217,
         "model": "SH-A4",
         "note": "Plastik laminat",
@@ -421,6 +495,8 @@
       {
         "id": 117,
         "name": "Trikotaj qaychi",
+        "name_ru": "Ножницы для трикотажа",
+        "name_tr": "Triko makası",
         "bukum": 218,
         "model": "QY-9inch",
         "note": "Zangsiz po'lat",
@@ -432,6 +508,8 @@
       {
         "id": 118,
         "name": "Ip tutuvchan (konusse)",
+        "name_ru": "Конус с нитью",
+        "name_tr": "Konik iplik",
         "bukum": 219,
         "model": "KON-5000m",
         "note": "5000 m g'altakda",
@@ -443,6 +521,8 @@
       {
         "id": 119,
         "name": "Biriktiruvchi lenta",
+        "name_ru": "Соединительная лента",
+        "name_tr": "Bağlayıcı bant",
         "bukum": 220,
         "model": "BL-25mm",
         "note": "Kenglik 25 mm",
@@ -461,6 +541,8 @@
       {
         "id": 200,
         "name": "Supurgi",
+        "name_ru": "Метла",
+        "name_tr": "Süpürge",
         "bukum": 301,
         "model": "SP-Classic",
         "note": "Plastik dastakli",
@@ -472,6 +554,8 @@
       {
         "id": 201,
         "name": "Lagan (plastik)",
+        "name_ru": "Таз (пластиковый)",
+        "name_tr": "Leğen (plastik)",
         "bukum": 302,
         "model": "LG-10L",
         "note": "Hajmi 10 litr",
@@ -483,6 +567,8 @@
       {
         "id": 202,
         "name": "Yuvish vositasi",
+        "name_ru": "Стиральный порошок",
+        "name_tr": "Çamaşır deterjanı",
         "bukum": 303,
         "model": "Ariel 5kg",
         "note": "Kiyim-kechak uchun",
@@ -494,6 +580,8 @@
       {
         "id": 203,
         "name": "Idish yuvish geli",
+        "name_ru": "Гель для мытья посуды",
+        "name_tr": "Bulaşık yıkama jeli",
         "bukum": 304,
         "model": "Fairy 1L",
         "note": "Limon hidli",
@@ -505,6 +593,8 @@
       {
         "id": 204,
         "name": "Pol yuvish vositasi",
+        "name_ru": "Средство для мытья полов",
+        "name_tr": "Yer temizleyici",
         "bukum": 305,
         "model": "Mr.Proper 1L",
         "note": "Dezinfektsiyalovchi",
@@ -516,6 +606,8 @@
       {
         "id": 205,
         "name": "Qo'l sovuni",
+        "name_ru": "Жидкое мыло",
+        "name_tr": "Sıvı sabun",
         "bukum": 306,
         "model": "Dettol 500ml",
         "note": "Antibakterial",
@@ -527,6 +619,8 @@
       {
         "id": 206,
         "name": "Qog'oz sochiq",
+        "name_ru": "Бумажные полотенца",
+        "name_tr": "Kağıt havlu",
         "bukum": 307,
         "model": "KS-2ply",
         "note": "2 qatlamli",
@@ -538,6 +632,8 @@
       {
         "id": 207,
         "name": "Axlat qopi",
+        "name_ru": "Мусорный мешок",
+        "name_tr": "Çöp torbası",
         "bukum": 308,
         "model": "AQ-60L",
         "note": "Qora, 60 litr",
@@ -549,6 +645,8 @@
       {
         "id": 208,
         "name": "Mo'p (shvalabra)",
+        "name_ru": "Швабра",
+        "name_tr": "Paspas",
         "bukum": 309,
         "model": "MP-twist",
         "note": "Burama turdagi",
@@ -560,6 +658,8 @@
       {
         "id": 209,
         "name": "Chelak",
+        "name_ru": "Ведро",
+        "name_tr": "Kova",
         "bukum": 310,
         "model": "CH-12L",
         "note": "12 litr, plastik",
@@ -571,6 +671,8 @@
       {
         "id": 210,
         "name": "Ishchi qo'lqop",
+        "name_ru": "Рабочие перчатки",
+        "name_tr": "İş eldiveni",
         "bukum": 311,
         "model": "QP-cotton M",
         "note": "Paxta asosli",
@@ -582,6 +684,8 @@
       {
         "id": 211,
         "name": "Himoya niqobi",
+        "name_ru": "Защитная маска",
+        "name_tr": "Koruyucu maske",
         "bukum": 312,
         "model": "FFP2",
         "note": "Changdan himoya",
@@ -593,6 +697,8 @@
       {
         "id": 212,
         "name": "Xavfsizlik ko'zoynak",
+        "name_ru": "Защитные очки",
+        "name_tr": "Güvenlik gözlüğü",
         "bukum": 313,
         "model": "KZ-clear",
         "note": "Shaffof linza",
@@ -604,6 +710,8 @@
       {
         "id": 213,
         "name": "Birinchi yordam sumkasi",
+        "name_ru": "Аптечка первой помощи",
+        "name_tr": "İlk yardım çantası",
         "bukum": 314,
         "model": "BY-standart",
         "note": "Komplektli",
@@ -615,6 +723,8 @@
       {
         "id": 214,
         "name": "Plastir",
+        "name_ru": "Пластырь",
+        "name_tr": "Yara bandı",
         "bukum": 315,
         "model": "PL-bactericidal",
         "note": "100 donali quti",
@@ -626,6 +736,8 @@
       {
         "id": 215,
         "name": "Antiseptik spirt",
+        "name_ru": "Антисептический спирт",
+        "name_tr": "Antiseptik alkol",
         "bukum": 316,
         "model": "AS-70%",
         "note": "Etil spirti 70%",
@@ -637,6 +749,8 @@
       {
         "id": 216,
         "name": "Choy (paket)",
+        "name_ru": "Чай (пакетики)",
+        "name_tr": "Çay (poşet)",
         "bukum": 317,
         "model": "Lipton Yellow",
         "note": "100 paketli quti",
@@ -648,6 +762,8 @@
       {
         "id": 217,
         "name": "Qand",
+        "name_ru": "Сахар",
+        "name_tr": "Şeker",
         "bukum": 318,
         "model": "QND-rafined",
         "note": "Rafinlangan",
@@ -659,6 +775,8 @@
       {
         "id": 218,
         "name": "Idish (stakan, shisha)",
+        "name_ru": "Посуда (стакан, стекло)",
+        "name_tr": "Kap (bardak, cam)",
         "bukum": 319,
         "model": "ST-200ml",
         "note": "200 ml hajm",
@@ -670,6 +788,8 @@
       {
         "id": 219,
         "name": "Elektr choynak",
+        "name_ru": "Электрочайник",
+        "name_tr": "Elektrikli çaydanlık",
         "bukum": 320,
         "model": "Tefal KO120",
         "note": "1.7 litr, 2400 W",

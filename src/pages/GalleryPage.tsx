@@ -44,7 +44,11 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
     const q = searchQuery.trim().toLowerCase();
     return activeCategory.products.filter((p) => {
       const matchesSearch =
-        !q || p.name.toLowerCase().includes(q) || p.model.toLowerCase().includes(q);
+        !q ||
+        p.name.toLowerCase().includes(q) ||
+        p.model.toLowerCase().includes(q) ||
+        (p.name_ru != null && p.name_ru.toLowerCase().includes(q)) ||
+        (p.name_tr != null && p.name_tr.toLowerCase().includes(q));
       const matchesDept = !departmentFilter || p.department === departmentFilter;
       return matchesSearch && matchesDept;
     });
