@@ -102,7 +102,7 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
                   onClick={() => setSelectedProduct(product)}
                   className="fade-in group relative aspect-square overflow-hidden bg-slate-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-400"
                   style={{ animationDelay: `${index * 30}ms` }}
-                  title={product.name}
+                  title={product.bukum != null ? `Bukum ${product.bukum}` : product.name}
                 >
                   {product.image ? (
                     <ImageWithSkeleton
@@ -117,7 +117,9 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
                     </div>
                   )}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end p-2">
-                    <p className="text-white text-xs font-medium truncate w-full text-center">{product.name}</p>
+                    <p className="text-white text-xs font-medium truncate w-full text-center">
+                      {product.bukum != null ? `Bukum ${product.bukum}` : product.name}
+                    </p>
                   </div>
                 </button>
               ))}

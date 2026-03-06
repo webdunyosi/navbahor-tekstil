@@ -7,6 +7,7 @@
       {
         "id": 1,
         "name": "Izolenta",
+        "bukum": 358,
         "model": "PVC-19mm",
         "note": "Qora rangli",
         "unit": "Dona",
@@ -17,6 +18,7 @@
       {
         "id": 2,
         "name": "Rulonlar",
+        "bukum": 359,
         "model": "R-500",
         "note": "Zaxira",
         "unit": "Dona",
@@ -27,6 +29,7 @@
       {
         "id": 3,
         "name": "Moslama (kressel)",
+        "bukum": 360,
         "model": "KR-200",
         "note": "Metall qotishma",
         "unit": "Dona",
@@ -37,6 +40,7 @@
       {
         "id": 4,
         "name": "Vinch",
+        "bukum": 361,
         "model": "VN-5T",
         "note": "5 tonna ko'tarish",
         "unit": "Dona",
@@ -47,6 +51,7 @@
       {
         "id": 5,
         "name": "Shkiv",
+        "bukum": 362,
         "model": "ShK-300",
         "note": "D=300 mm",
         "unit": "Dona",
@@ -57,6 +62,7 @@
       {
         "id": 6,
         "name": "Tasma (klinli)",
+        "bukum": 363,
         "model": "A-1000",
         "note": "Uzunligi 1000 mm",
         "unit": "Dona",
@@ -67,6 +73,7 @@
       {
         "id": 7,
         "name": "Moy filtri",
+        "bukum": 364,
         "model": "MF-40",
         "note": "Almashtirish muddati",
         "unit": "Dona",
@@ -77,6 +84,7 @@
       {
         "id": 8,
         "name": "Podshipnik",
+        "bukum": 365,
         "model": "6205-2RS",
         "note": "Yopiq turdagi",
         "unit": "Dona",
@@ -87,6 +95,7 @@
       {
         "id": 9,
         "name": "Elektr kabeli",
+        "bukum": 366,
         "model": "ВВГНГ 3x2.5",
         "note": "Yong'inga chidamli",
         "unit": "Metr",
@@ -97,6 +106,7 @@
       {
         "id": 10,
         "name": "Pnevmatik shlang",
+        "bukum": 367,
         "model": "PSh-12",
         "note": "D=12 mm",
         "unit": "Metr",
@@ -107,6 +117,7 @@
       {
         "id": 11,
         "name": "Murvat to'plami",
+        "bukum": 368,
         "model": "M8x30 DIN933",
         "note": "Mis qoplamali",
         "unit": "Kg",
@@ -117,6 +128,7 @@
       {
         "id": 12,
         "name": "Elektr motori",
+        "bukum": 369,
         "model": "АИР90L4",
         "note": "2.2 kW, 1500 ayl/min",
         "unit": "Dona",
@@ -127,6 +139,7 @@
       {
         "id": 13,
         "name": "Gidravlik nasos",
+        "bukum": 370,
         "model": "GN-PH-40",
         "note": "Yog' bosimi 200 bar",
         "unit": "Dona",
@@ -137,6 +150,7 @@
       {
         "id": 14,
         "name": "Konveyer lentasi",
+        "bukum": 371,
         "model": "KL-800",
         "note": "Kenglik 800 mm",
         "unit": "Metr",
@@ -147,6 +161,7 @@
       {
         "id": 15,
         "name": "Reduktor",
+        "bukum": 372,
         "model": "RD-50-40",
         "note": "Kamaytirish nisbati 40",
         "unit": "Dona",
@@ -157,6 +172,7 @@
       {
         "id": 16,
         "name": "Manometr",
+        "bukum": 373,
         "model": "MAN-100",
         "note": "0–250 bar diapazoni",
         "unit": "Dona",
@@ -167,6 +183,7 @@
       {
         "id": 17,
         "name": "Avariya tormozi",
+        "bukum": 374,
         "model": "AT-200",
         "note": "Elektromagnitli",
         "unit": "Dona",
@@ -177,6 +194,7 @@
       {
         "id": 18,
         "name": "Zanjir (rollika)",
+        "bukum": 375,
         "model": "08B-1",
         "note": "Uzunligi 3 metr",
         "unit": "Metr",
@@ -187,6 +205,7 @@
       {
         "id": 19,
         "name": "Sensor (harorat)",
+        "bukum": 376,
         "model": "PT100",
         "note": "–50 dan +200 °C",
         "unit": "Dona",
@@ -197,6 +216,7 @@
       {
         "id": 20,
         "name": "Havo kompressori",
+        "bukum": 377,
         "model": "HK-750L",
         "note": "7.5 kW, 750 l/min",
         "unit": "Dona",
@@ -214,6 +234,7 @@
       {
         "id": 100,
         "name": "Tikuv mashinasi",
+        "bukum": 201,
         "model": "JUKI DDL-8700",
         "note": "Sanoat darajasi",
         "unit": "Dona",
@@ -224,6 +245,7 @@
       {
         "id": 101,
         "name": "Ip (paxta, oq)",
+        "bukum": 202,
         "model": "Ne 40/2",
         "note": "1 kg g'altakda",
         "unit": "Kg",
@@ -234,6 +256,7 @@
       {
         "id": 102,
         "name": "Ip (paxta, rang)",
+        "bukum": 203,
         "model": "Ne 40/2 R",
         "note": "Aralash rang",
         "unit": "Kg",
@@ -244,6 +267,7 @@
       {
         "id": 103,
         "name": "Tugma (plastik)",
+        "bukum": 204,
         "model": "TG-18mm",
         "note": "4 teshikli",
         "unit": "Dona",
@@ -254,6 +278,7 @@
       {
         "id": 104,
         "name": "Fermuvar",
+        "bukum": 205,
         "model": "YKK-50cm",
         "note": "Ranglar aralash",
         "unit": "Dona",
@@ -264,6 +289,7 @@
       {
         "id": 105,
         "name": "Ip (polyester)",
+        "bukum": 206,
         "model": "120D/2",
         "note": "Mustahkam tikuv uchun",
         "unit": "Katushka",
@@ -274,6 +300,7 @@
       {
         "id": 106,
         "name": "Tikuv ignasi",
+        "bukum": 207,
         "model": "DBx1 №14",
         "note": "JUKI uchun mos",
         "unit": "Quti",
@@ -284,6 +311,7 @@
       {
         "id": 107,
         "name": "Mato (paxta, oq)",
+        "bukum": 208,
         "model": "40x40/133x72",
         "note": "Kenglik 150 sm",
         "unit": "Metr",
@@ -294,6 +322,7 @@
       {
         "id": 108,
         "name": "Mato (rangli)",
+        "bukum": 209,
         "model": "30x30/110x76",
         "note": "Kenglik 150 sm",
         "unit": "Metr",
@@ -304,6 +333,7 @@
       {
         "id": 109,
         "name": "Kesish mashinasi",
+        "bukum": 210,
         "model": "Eastman 627X",
         "note": "Yumaloq pichoq",
         "unit": "Dona",
@@ -314,6 +344,7 @@
       {
         "id": 110,
         "name": "Yelim (termal)",
+        "bukum": 211,
         "model": "HM-Glue 200g",
         "note": "Yukori haroratli",
         "unit": "Kg",
@@ -324,6 +355,7 @@
       {
         "id": 111,
         "name": "Kalit (qopqa uchun)",
+        "bukum": 212,
         "model": "KKL-10",
         "note": "Plastik qopqa",
         "unit": "Dona",
@@ -334,6 +366,7 @@
       {
         "id": 112,
         "name": "Yorliq (teg)",
+        "bukum": 213,
         "model": "YR-50x30mm",
         "note": "Shtrix-kod bosilgan",
         "unit": "Dona",
@@ -344,6 +377,7 @@
       {
         "id": 113,
         "name": "Qadoq qop",
+        "bukum": 214,
         "model": "PP-50x80",
         "note": "Polipropilen",
         "unit": "Dona",
@@ -354,6 +388,7 @@
       {
         "id": 114,
         "name": "Ip kesgich",
+        "bukum": 215,
         "model": "IK-manual",
         "note": "Qo'l uchun",
         "unit": "Dona",
@@ -364,6 +399,7 @@
       {
         "id": 115,
         "name": "Bosma trubka",
+        "bukum": 216,
         "model": "BT-Ø8mm",
         "note": "Alyuminiy",
         "unit": "Metr",
@@ -374,6 +410,7 @@
       {
         "id": 116,
         "name": "Planshet (shablon)",
+        "bukum": 217,
         "model": "SH-A4",
         "note": "Plastik laminat",
         "unit": "Dona",
@@ -384,6 +421,7 @@
       {
         "id": 117,
         "name": "Trikotaj qaychi",
+        "bukum": 218,
         "model": "QY-9inch",
         "note": "Zangsiz po'lat",
         "unit": "Dona",
@@ -394,6 +432,7 @@
       {
         "id": 118,
         "name": "Ip tutuvchan (konusse)",
+        "bukum": 219,
         "model": "KON-5000m",
         "note": "5000 m g'altakda",
         "unit": "Dona",
@@ -404,6 +443,7 @@
       {
         "id": 119,
         "name": "Biriktiruvchi lenta",
+        "bukum": 220,
         "model": "BL-25mm",
         "note": "Kenglik 25 mm",
         "unit": "Metr",
@@ -421,6 +461,7 @@
       {
         "id": 200,
         "name": "Supurgi",
+        "bukum": 301,
         "model": "SP-Classic",
         "note": "Plastik dastakli",
         "unit": "Dona",
@@ -431,6 +472,7 @@
       {
         "id": 201,
         "name": "Lagan (plastik)",
+        "bukum": 302,
         "model": "LG-10L",
         "note": "Hajmi 10 litr",
         "unit": "Dona",
@@ -441,6 +483,7 @@
       {
         "id": 202,
         "name": "Yuvish vositasi",
+        "bukum": 303,
         "model": "Ariel 5kg",
         "note": "Kiyim-kechak uchun",
         "unit": "Quti",
@@ -451,6 +494,7 @@
       {
         "id": 203,
         "name": "Idish yuvish geli",
+        "bukum": 304,
         "model": "Fairy 1L",
         "note": "Limon hidli",
         "unit": "Shisha",
@@ -461,6 +505,7 @@
       {
         "id": 204,
         "name": "Pol yuvish vositasi",
+        "bukum": 305,
         "model": "Mr.Proper 1L",
         "note": "Dezinfektsiyalovchi",
         "unit": "Shisha",
@@ -471,6 +516,7 @@
       {
         "id": 205,
         "name": "Qo'l sovuni",
+        "bukum": 306,
         "model": "Dettol 500ml",
         "note": "Antibakterial",
         "unit": "Shisha",
@@ -481,6 +527,7 @@
       {
         "id": 206,
         "name": "Qog'oz sochiq",
+        "bukum": 307,
         "model": "KS-2ply",
         "note": "2 qatlamli",
         "unit": "Rulon",
@@ -491,6 +538,7 @@
       {
         "id": 207,
         "name": "Axlat qopi",
+        "bukum": 308,
         "model": "AQ-60L",
         "note": "Qora, 60 litr",
         "unit": "Dona",
@@ -501,6 +549,7 @@
       {
         "id": 208,
         "name": "Mo'p (shvalabra)",
+        "bukum": 309,
         "model": "MP-twist",
         "note": "Burama turdagi",
         "unit": "Dona",
@@ -511,6 +560,7 @@
       {
         "id": 209,
         "name": "Chelak",
+        "bukum": 310,
         "model": "CH-12L",
         "note": "12 litr, plastik",
         "unit": "Dona",
@@ -521,6 +571,7 @@
       {
         "id": 210,
         "name": "Ishchi qo'lqop",
+        "bukum": 311,
         "model": "QP-cotton M",
         "note": "Paxta asosli",
         "unit": "Juft",
@@ -531,6 +582,7 @@
       {
         "id": 211,
         "name": "Himoya niqobi",
+        "bukum": 312,
         "model": "FFP2",
         "note": "Changdan himoya",
         "unit": "Dona",
@@ -541,6 +593,7 @@
       {
         "id": 212,
         "name": "Xavfsizlik ko'zoynak",
+        "bukum": 313,
         "model": "KZ-clear",
         "note": "Shaffof linza",
         "unit": "Dona",
@@ -551,6 +604,7 @@
       {
         "id": 213,
         "name": "Birinchi yordam sumkasi",
+        "bukum": 314,
         "model": "BY-standart",
         "note": "Komplektli",
         "unit": "Dona",
@@ -561,6 +615,7 @@
       {
         "id": 214,
         "name": "Plastir",
+        "bukum": 315,
         "model": "PL-bactericidal",
         "note": "100 donali quti",
         "unit": "Quti",
@@ -571,6 +626,7 @@
       {
         "id": 215,
         "name": "Antiseptik spirt",
+        "bukum": 316,
         "model": "AS-70%",
         "note": "Etil spirti 70%",
         "unit": "Litr",
@@ -581,6 +637,7 @@
       {
         "id": 216,
         "name": "Choy (paket)",
+        "bukum": 317,
         "model": "Lipton Yellow",
         "note": "100 paketli quti",
         "unit": "Quti",
@@ -591,6 +648,7 @@
       {
         "id": 217,
         "name": "Qand",
+        "bukum": 318,
         "model": "QND-rafined",
         "note": "Rafinlangan",
         "unit": "Kg",
@@ -601,6 +659,7 @@
       {
         "id": 218,
         "name": "Idish (stakan, shisha)",
+        "bukum": 319,
         "model": "ST-200ml",
         "note": "200 ml hajm",
         "unit": "Dona",
@@ -611,6 +670,7 @@
       {
         "id": 219,
         "name": "Elektr choynak",
+        "bukum": 320,
         "model": "Tefal KO120",
         "note": "1.7 litr, 2400 W",
         "unit": "Dona",
