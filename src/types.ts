@@ -1,6 +1,7 @@
 export interface Product {
   id: number;
   name: string;       // Maxsulot nomi
+  bukum?: number;     // Tokchadagi o'rni (shelf number)
   model: string;      // Maxsulot modeli
   note: string;       // Izoh
   unit: string;       // O'lchov birligi
