@@ -67,21 +67,25 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
   return (
     <>
       <div className="space-y-3">
-        {/* Category tabs */}
-        <CategoryTabs
-          categories={tabCategories}
-          activeId={activeTab}
-          onSelect={handleTabChange}
-        />
-
-        {/* Search and filter */}
-        <SearchAndFilter
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          departmentFilter={departmentFilter}
-          onDepartmentChange={setDepartmentFilter}
-          departments={departments}
-        />
+        {/* Category tabs and search/filter side by side */}
+        <div className="flex flex-col lg:flex-row gap-3 items-start">
+          <div className="flex-1 min-w-0">
+            <CategoryTabs
+              categories={tabCategories}
+              activeId={activeTab}
+              onSelect={handleTabChange}
+            />
+          </div>
+          <div className="w-full lg:w-auto lg:shrink-0">
+            <SearchAndFilter
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              departmentFilter={departmentFilter}
+              onDepartmentChange={setDepartmentFilter}
+              departments={departments}
+            />
+          </div>
+        </div>
 
         <div className="rounded-sm overflow-hidden shadow-2xl">
           {filteredProducts.length === 0 ? (
