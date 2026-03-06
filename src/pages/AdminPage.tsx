@@ -18,6 +18,7 @@ const emptyForm = (): Omit<Product, 'id'> => ({
   quantity: 0,
   department: '',
   image: '',
+  bukum: undefined,
 });
 
 const productToForm = (p: Product): Omit<Product, 'id'> => ({
@@ -28,6 +29,7 @@ const productToForm = (p: Product): Omit<Product, 'id'> => ({
   quantity: p.quantity,
   department: p.department,
   image: p.image ?? '',
+  bukum: p.bukum,
 });
 
 const ProductImage = ({ src, alt, size = 'table' }: { src: string; alt: string; size?: 'table' | 'preview' }) => {
@@ -61,7 +63,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
 
   const activeCategory = categories.find((c) => c.id === activeCategoryId);
 
-  const handleFormChange = (field: keyof Omit<Product, 'id'>, value: string | number) => {
+  const handleFormChange = (field: keyof Omit<Product, 'id'>, value: string | number | undefined) => {
     setForm((prev) => ({ ...prev, [field]: value }));
     setFormError('');
   };
@@ -291,6 +293,19 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                     )}
                   </div>
 
+                  {/* Bukum */}
+                  <div>
+                    <label className="block text-xs text-white/60 mb-1">Bukum</label>
+                    <input
+                      type="number"
+                      min={0}
+                      value={form.bukum ?? ''}
+                      onChange={(e) => handleFormChange('bukum', e.target.value === '' ? undefined : Number(e.target.value))}
+                      placeholder="Masalan: 358"
+                      className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/15 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-indigo-500/60 text-sm"
+                    />
+                  </div>
+
                   {/* Error & Submit */}
                   {formError && (
                     <div className="sm:col-span-2 lg:col-span-3">
@@ -328,7 +343,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                 <table className="w-full text-sm text-left border-separate border-spacing-0">
                   <thead>
                     <tr>
-                      {['No', 'Rasm', 'Nomi', 'Modeli', 'Izoh', "O'lchov", 'Soni', "Bo'lim", 'Amal'].map((col, i) => (
+                      {['No', 'Rasm', 'Bukum', 'Nomi', 'Modeli', 'Izoh', "O'lchov", 'Soni', "Bo'lim", 'Amal'].map((col, i) => (
                         <th
                           key={col}
                           className={`px-4 py-3 text-xs font-semibold uppercase tracking-wider text-indigo-300 bg-indigo-950/60 border-b border-white/10 whitespace-nowrap ${i === 0 ? 'rounded-tl-xl' : ''}`}
@@ -351,6 +366,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                             </div>
                           )}
                         </td>
+                        <td className="px-4 py-3 font-mono text-xs text-white/70 whitespace-nowrap border-b border-white/5">{product.bukum ?? '—'}</td>
                         <td className="px-4 py-3 font-medium text-white whitespace-nowrap border-b border-white/5">{product.name}</td>
                         <td className="px-4 py-3 text-indigo-200 font-mono text-xs whitespace-nowrap border-b border-white/5">{product.model}</td>
                         <td className="px-4 py-3 text-white/60 max-w-[160px] truncate border-b border-white/5" title={product.note}>{product.note || '—'}</td>
