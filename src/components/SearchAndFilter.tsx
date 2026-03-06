@@ -16,7 +16,7 @@ const SearchAndFilter = ({
   departments,
 }: SearchAndFilterProps) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-col sm:flex-row gap-2">
       {/* Search input */}
       <div className="relative flex-1 min-w-0">
         <span className="absolute inset-y-0 left-3 flex items-center text-white/60 pointer-events-none z-10">
@@ -40,7 +40,7 @@ const SearchAndFilter = ({
       </div>
 
       {/* Department filter */}
-      <div className="relative shrink-0 w-10 sm:w-48 overflow-hidden rounded-xl">
+      <div className="relative w-full sm:w-48 sm:shrink-0 overflow-hidden rounded-xl">
         <span className="absolute inset-y-0 left-3 flex items-center text-white/60 pointer-events-none z-10">
           <FaTag className="text-base" />
         </span>
@@ -57,7 +57,7 @@ const SearchAndFilter = ({
             </option>
           ))}
         </select>
-        <span className="absolute inset-y-0 right-2 hidden sm:flex items-center text-white/60 pointer-events-none text-xs z-10">
+        <span className="absolute inset-y-0 right-2 flex items-center text-white/60 pointer-events-none text-xs z-10">
           <FaChevronDown />
         </span>
       </div>
