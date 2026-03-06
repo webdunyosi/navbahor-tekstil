@@ -1,4 +1,4 @@
-import { FaImages, FaCircleInfo, FaXmark } from 'react-icons/fa6';
+import { FaImages, FaCircleInfo, FaScrewdriverWrench, FaXmark } from 'react-icons/fa6';
 import type { IconType } from 'react-icons';
 
 type SidebarPage = 'gallery' | 'about';
@@ -8,6 +8,7 @@ interface SidebarProps {
   onPageChange: (page: SidebarPage) => void;
   isOpen: boolean;
   onClose: () => void;
+  onToggleAdminView?: () => void;
 }
 
 const NAV_ITEMS: { id: SidebarPage; icon: IconType; label: string }[] = [
@@ -15,7 +16,7 @@ const NAV_ITEMS: { id: SidebarPage; icon: IconType; label: string }[] = [
   { id: 'about',   icon: FaCircleInfo,  label: 'About'    },
 ];
 
-const Sidebar = ({ activePage, onPageChange, isOpen, onClose }: SidebarProps) => {
+const Sidebar = ({ activePage, onPageChange, isOpen, onClose, onToggleAdminView }: SidebarProps) => {
   return (
     <>
       {/* Mobile overlay backdrop */}
@@ -67,6 +68,17 @@ const Sidebar = ({ activePage, onPageChange, isOpen, onClose }: SidebarProps) =>
             </button>
           );
         })}
+
+        {onToggleAdminView && (
+          <button
+            onClick={() => { onToggleAdminView(); onClose(); }}
+            title="Admin panel"
+            className="flex items-center gap-3 px-3 py-3 rounded-xl font-medium text-sm transition-all duration-200 w-full text-left text-white/60 hover:bg-white/10 hover:text-white mt-auto"
+          >
+            <FaScrewdriverWrench className="text-xl shrink-0" />
+            <span>Admin panel</span>
+          </button>
+        )}
       </aside>
     </>
   );
