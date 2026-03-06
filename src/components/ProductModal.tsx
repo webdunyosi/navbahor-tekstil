@@ -64,6 +64,12 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
           </div>
 
           <div className="grid grid-cols-2 gap-3 text-sm">
+            {product.bukum != null && (
+              <div className="col-span-2 rounded-xl bg-indigo-500/10 border border-indigo-400/20 px-4 py-3">
+                <p className="text-white/40 text-xs uppercase tracking-wider mb-1">Tokchadagi o'rni</p>
+                <p className="text-indigo-200 font-bold text-base">Bukum {product.bukum}</p>
+              </div>
+            )}
             <div className="rounded-xl bg-white/5 border border-white/10 px-4 py-3">
               <p className="text-white/40 text-xs uppercase tracking-wider mb-1">Izoh</p>
               <p className="text-white/80">{product.note || '—'}</p>
