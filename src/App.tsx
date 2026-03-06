@@ -82,6 +82,7 @@ const App = () => {
           currentUser={currentUser}
           onLogout={handleLogout}
           onGoToMain={() => setAppView('main')}
+          paddingX="px-8"
         />
         <AdminPage categories={categories} onUpdateCategories={handleUpdateCategories} />
       </div>
@@ -94,6 +95,7 @@ const App = () => {
         currentUser={currentUser}
         onLogout={handleLogout}
         onMenuToggle={() => setSidebarOpen((prev) => !prev)}
+        paddingX="px-2"
       />
 
       <div className="flex">
