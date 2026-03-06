@@ -103,6 +103,8 @@ const App = () => {
           isOpen={sidebarOpen}
           onClose={() => setSidebarOpen(false)}
           onToggleAdminView={handleAdminIconClick}
+          onLogout={handleLogout}
+          currentUser={currentUser}
         />
 
         <main className="flex-1 p-2 space-y-6 min-w-0">
