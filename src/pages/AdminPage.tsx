@@ -85,7 +85,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-white">
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+      <main className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
         {/* Page Title */}
         <div className="flex items-center gap-3">
