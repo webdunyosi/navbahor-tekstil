@@ -29,12 +29,13 @@ const Sidebar = ({ activePage, onPageChange, isOpen, onClose, onToggleAdminView 
 
       <aside
         className={`
-          fixed sm:static top-0 left-0 z-40 sm:z-auto
-          h-full sm:h-auto sm:min-h-[calc(100vh-72px)]
+          fixed sm:sticky top-0 left-0 z-40 sm:z-auto
+          h-screen
           w-64 sm:w-56 shrink-0
           bg-slate-900 sm:bg-white/5 backdrop-blur-md
           border-r border-white/10
           flex flex-col gap-2 py-6 px-4
+          overflow-y-auto
           transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           ${!isOpen ? 'sm:hidden' : ''}
