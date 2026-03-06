@@ -27,6 +27,11 @@ const Header = ({ currentUser, onLogout, onMenuToggle, onGoToMain }: HeaderProps
             </div>
           </div>
           <div className="flex items-center gap-2">
+            {currentUser && (
+              <span className="hidden sm:inline text-sm text-white/70 font-medium px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                {currentUser.name}
+              </span>
+            )}
             {onGoToMain && (
               <button
                 onClick={onGoToMain}
@@ -36,6 +41,17 @@ const Header = ({ currentUser, onLogout, onMenuToggle, onGoToMain }: HeaderProps
               >
                 <FaHouse className="text-base" />
                 <span className="hidden sm:inline">Asosiy sahifa</span>
+              </button>
+            )}
+            {onLogout && currentUser && (
+              <button
+                onClick={onLogout}
+                title="Chiqish"
+                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10 hover:bg-red-500/20 border border-white/10 hover:border-red-400/30 transition-all duration-200 text-white/70 hover:text-red-300 text-sm font-medium shrink-0"
+                aria-label="Tizimdan chiqish"
+              >
+                <FaRightFromBracket className="text-base" />
+                <span className="hidden sm:inline">Chiqish</span>
               </button>
             )}
             {onMenuToggle && (
