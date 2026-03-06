@@ -83,19 +83,19 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
           departments={departments}
         />
 
-        <div className="rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 overflow-hidden shadow-2xl p-4">
+        <div className="rounded-2xl overflow-hidden shadow-2xl">
           {filteredProducts.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-12 text-white/40">
+            <div className="flex flex-col items-center justify-center py-12 text-white/40 bg-white/5">
               <FaMagnifyingGlass className="text-4xl mb-3" />
               <p className="text-base font-medium">Hech narsa topilmadi</p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-px bg-white/10">
               {filteredProducts.map((product, index) => (
                 <button
                   key={product.id}
                   onClick={() => setSelectedProduct(product)}
-                  className="fade-in group relative aspect-square rounded-xl overflow-hidden border border-white/10 hover:border-indigo-400/60 hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-transparent bg-white/5"
+                  className="fade-in group relative aspect-square overflow-hidden bg-slate-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-400"
                   style={{ animationDelay: `${index * 30}ms` }}
                   title={product.name}
                 >
@@ -110,7 +110,7 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
                       <FaBox className="text-4xl" />
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end p-2">
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end p-2">
                     <p className="text-white text-xs font-medium truncate w-full text-center">{product.name}</p>
                   </div>
                 </button>
