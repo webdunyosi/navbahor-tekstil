@@ -1,5 +1,6 @@
-import { FaImages, FaCircleInfo, FaScrewdriverWrench, FaXmark } from 'react-icons/fa6';
+import { FaImages, FaCircleInfo, FaScrewdriverWrench, FaXmark, FaRightFromBracket } from 'react-icons/fa6';
 import type { IconType } from 'react-icons';
+import type { User } from '../types';
 
 type SidebarPage = 'gallery' | 'about';
 
@@ -9,6 +10,8 @@ interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
   onToggleAdminView?: () => void;
+  onLogout?: () => void;
+  currentUser?: User | null;
 }
 
 const NAV_ITEMS: { id: SidebarPage; icon: IconType; label: string }[] = [
@@ -16,7 +19,7 @@ const NAV_ITEMS: { id: SidebarPage; icon: IconType; label: string }[] = [
   { id: 'about',   icon: FaCircleInfo,  label: 'About'    },
 ];
 
-const Sidebar = ({ activePage, onPageChange, isOpen, onClose, onToggleAdminView }: SidebarProps) => {
+const Sidebar = ({ activePage, onPageChange, isOpen, onClose, onToggleAdminView, onLogout, currentUser }: SidebarProps) => {
   return (
     <>
       {/* Mobile overlay backdrop */}
@@ -79,6 +82,17 @@ const Sidebar = ({ activePage, onPageChange, isOpen, onClose, onToggleAdminView 
           >
             <FaScrewdriverWrench className="text-xl shrink-0" />
             <span>Admin panel</span>
+          </button>
+        )}
+
+        {onLogout && currentUser && (
+          <button
+            onClick={() => { onLogout(); onClose(); }}
+            title="Chiqish"
+            className={`flex items-center gap-3 px-3 py-3 rounded-xl font-medium text-sm transition-all duration-200 w-full text-left text-white/60 hover:bg-red-500/20 hover:text-red-300 ${!onToggleAdminView ? 'mt-auto' : ''}`}
+          >
+            <FaRightFromBracket className="text-xl shrink-0" />
+            <span>Chiqish</span>
           </button>
         )}
       </aside>
