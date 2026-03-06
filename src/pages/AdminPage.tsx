@@ -32,6 +32,7 @@ const productToForm = (p: Product): Omit<Product, 'id'> => ({
 
 const ProductImage = ({ src, alt, size = 'table' }: { src: string; alt: string; size?: 'table' | 'preview' }) => {
   const [error, setError] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const cls = size === 'preview' ? 'w-16 h-16' : 'w-12 h-12';
   if (error) {
     return (
@@ -41,8 +42,11 @@ const ProductImage = ({ src, alt, size = 'table' }: { src: string; alt: string; 
     );
   }
   return (
-    <div className={`${cls} rounded-lg overflow-hidden border border-white/10`}>
-      <img src={src} alt={alt} className="w-full h-full object-cover" onError={() => setError(true)} />
+    <div className={`relative ${cls} rounded-lg overflow-hidden border border-white/10`}>
+      {!loaded && (
+        <div className="absolute inset-0 animate-pulse bg-white/10" />
+      )}
+      <img src={src} alt={alt} className="w-full h-full object-cover" onLoad={() => setLoaded(true)} onError={() => setError(true)} />
     </div>
   );
 };

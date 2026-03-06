@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { FaXmark } from 'react-icons/fa6';
 import type { Product } from '../types';
@@ -9,6 +9,11 @@ interface ProductModalProps {
 }
 
 const ProductModal = ({ product, onClose }: ProductModalProps) => {
+  const [imgLoaded, setImgLoaded] = useState(false);
+
+  useEffect(() => {
+    setImgLoaded(false);
+  }, [product.id]);
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -37,11 +42,16 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
 
         {/* Image */}
         {product.image && (
-          <div className="w-full bg-indigo-950/50 flex items-center justify-center" style={{ minHeight: '240px' }}>
+          <div className="relative w-full bg-indigo-950/50 flex items-center justify-center" style={{ minHeight: '240px' }}>
+            {!imgLoaded && (
+              <div className="absolute inset-0 animate-pulse bg-white/10 pointer-events-none" />
+            )}
             <img
               src={product.image}
               alt={product.name}
               className="max-h-72 w-full object-contain p-4"
+              onLoad={() => setImgLoaded(true)}
+              onError={() => setImgLoaded(true)}
             />
           </div>
         )}
