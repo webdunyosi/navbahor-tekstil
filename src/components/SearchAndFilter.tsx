@@ -16,23 +16,23 @@ const SearchAndFilter = ({
   departments,
 }: SearchAndFilterProps) => {
   return (
-    <div className="flex flex-col sm:flex-row gap-3">
+    <div className="flex gap-2">
       {/* Search input */}
-      <div className="relative flex-1">
-        <span className="absolute inset-y-0 left-4 flex items-center text-white/60 pointer-events-none z-10">
-          <FaMagnifyingGlass className="text-lg" />
+      <div className="relative flex-1 min-w-0">
+        <span className="absolute inset-y-0 left-3 flex items-center text-white/60 pointer-events-none z-10">
+          <FaMagnifyingGlass className="text-base" />
         </span>
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
-          placeholder="Mahsulot nomi yoki modeli bo'yicha qidiring..."
-          className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-400/60 transition-all duration-200"
+          placeholder="Qidirish..."
+          className="w-full pl-9 pr-8 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-400/60 transition-all duration-200"
         />
         {searchQuery && (
           <button
             onClick={() => onSearchChange('')}
-            className="absolute inset-y-0 right-3 flex items-center text-white/50 hover:text-white/80 transition-colors"
+            className="absolute inset-y-0 right-2 flex items-center text-white/50 hover:text-white/80 transition-colors"
           >
             <FaXmark />
           </button>
@@ -40,14 +40,15 @@ const SearchAndFilter = ({
       </div>
 
       {/* Department filter */}
-      <div className="relative sm:w-56">
-        <span className="absolute inset-y-0 left-4 flex items-center text-white/60 pointer-events-none z-10">
-          <FaTag className="text-lg" />
+      <div className="relative shrink-0 w-10 sm:w-48 overflow-hidden rounded-xl">
+        <span className="absolute inset-y-0 left-3 flex items-center text-white/60 pointer-events-none z-10">
+          <FaTag className="text-base" />
         </span>
         <select
           value={departmentFilter}
           onChange={(e) => onDepartmentChange(e.target.value)}
-          className="w-full pl-11 pr-8 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-400/60 transition-all duration-200 appearance-none cursor-pointer"
+          title={departmentFilter || "Barcha bo'limlar"}
+          className="w-full pl-9 pr-7 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-400/60 transition-all duration-200 appearance-none cursor-pointer"
         >
           <option value="" className="bg-gray-900">Barcha bo'limlar</option>
           {departments.map((dept) => (
@@ -56,7 +57,7 @@ const SearchAndFilter = ({
             </option>
           ))}
         </select>
-        <span className="absolute inset-y-0 right-3 flex items-center text-white/60 pointer-events-none text-xs z-10">
+        <span className="absolute inset-y-0 right-2 hidden sm:flex items-center text-white/60 pointer-events-none text-xs z-10">
           <FaChevronDown />
         </span>
       </div>
