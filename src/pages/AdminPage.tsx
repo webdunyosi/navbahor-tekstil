@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaScrewdriverWrench, FaBox, FaPlus, FaXmark } from 'react-icons/fa6';
+import { FaScrewdriverWrench, FaBox, FaPlus, FaXmark, FaPencil } from 'react-icons/fa6';
 import type { Category, Product } from '../types';
 import CategoryIcon from '../components/CategoryIcon';
 
@@ -18,6 +18,16 @@ const emptyForm = (): Omit<Product, 'id'> => ({
   quantity: 0,
   department: '',
   image: '',
+});
+
+const productToForm = (p: Product): Omit<Product, 'id'> => ({
+  name: p.name,
+  model: p.model,
+  note: p.note,
+  unit: p.unit,
+  quantity: p.quantity,
+  department: p.department,
+  image: p.image ?? '',
 });
 
 const ProductImage = ({ src, alt, size = 'table' }: { src: string; alt: string; size?: 'table' | 'preview' }) => {
@@ -43,6 +53,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
   const [form, setForm] = useState<Omit<Product, 'id'>>(emptyForm());
   const [formError, setFormError] = useState('');
   const [deleteConfirmId, setDeleteConfirmId] = useState<number | null>(null);
+  const [editProductId, setEditProductId] = useState<number | null>(null);
 
   const activeCategory = categories.find((c) => c.id === activeCategoryId);
 
@@ -73,6 +84,48 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
     setShowForm(false);
   };
 
+  const handleEditStart = (product: Product) => {
+    setEditProductId(product.id);
+    setForm(productToForm(product));
+    setShowForm(true);
+    setFormError('');
+    setDeleteConfirmId(null);
+  };
+
+  const handleUpdateProduct = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormError('');
+
+    if (!form.name.trim()) { setFormError("Mahsulot nomi kiritilishi shart."); return; }
+    if (!form.model.trim()) { setFormError("Mahsulot modeli kiritilishi shart."); return; }
+    if (!form.department.trim()) { setFormError("Bo'lim nomi kiritilishi shart."); return; }
+    if (form.quantity < 0) { setFormError("Soni manfiy bo'lishi mumkin emas."); return; }
+
+    const updated = categories.map((c) =>
+      c.id === activeCategoryId
+        ? {
+            ...c,
+            products: c.products.map((p) =>
+              p.id === editProductId
+                ? { ...p, ...form, name: form.name.trim(), model: form.model.trim(), note: form.note.trim(), department: form.department.trim() }
+                : p
+            ),
+          }
+        : c
+    );
+    onUpdateCategories(updated);
+    setForm(emptyForm());
+    setShowForm(false);
+    setEditProductId(null);
+  };
+
+  const handleCancelForm = () => {
+    setShowForm(false);
+    setForm(emptyForm());
+    setFormError('');
+    setEditProductId(null);
+  };
+
   const handleDeleteProduct = (productId: number) => {
     const updated = categories.map((c) =>
       c.id === activeCategoryId
@@ -81,6 +134,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
     );
     onUpdateCategories(updated);
     setDeleteConfirmId(null);
+    if (editProductId === productId) handleCancelForm();
   };
 
   return (
@@ -104,7 +158,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
               return (
                 <button
                   key={cat.id}
-                  onClick={() => { setActiveCategoryId(cat.id); setShowForm(false); setDeleteConfirmId(null); }}
+                  onClick={() => { setActiveCategoryId(cat.id); setShowForm(false); setDeleteConfirmId(null); setForm(emptyForm()); setFormError(''); setEditProductId(null); }}
                   className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium text-sm transition-all duration-200 ${
                     isActive
                       ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/40 scale-105'
@@ -132,7 +186,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                 <span className="text-sm text-white/50">{activeCategory.products.length} ta mahsulot</span>
               </div>
               <button
-                onClick={() => { setShowForm((v) => !v); setFormError(''); setForm(emptyForm()); }}
+                onClick={() => { if (showForm) { handleCancelForm(); } else { setEditProductId(null); setForm(emptyForm()); setFormError(''); setShowForm(true); } }}
                 className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-all duration-200 shadow-lg shadow-indigo-500/30"
               >
                 <span className="text-lg leading-none">{showForm ? <FaXmark /> : <FaPlus />}</span>
@@ -140,11 +194,13 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
               </button>
             </div>
 
-            {/* Add Product Form */}
+            {/* Add / Edit Product Form */}
             {showForm && (
               <div className="px-6 py-5 border-b border-white/10 bg-indigo-950/30">
-                <h4 className="text-base font-semibold text-indigo-200 mb-4">Yangi mahsulot qo'shish</h4>
-                <form onSubmit={handleAddProduct} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <h4 className="text-base font-semibold text-indigo-200 mb-4">
+                  {editProductId !== null ? "Mahsulotni tahrirlash" : "Yangi mahsulot qo'shish"}
+                </h4>
+                <form onSubmit={editProductId !== null ? handleUpdateProduct : handleAddProduct} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {/* Name */}
                   <div>
                     <label className="block text-xs text-white/60 mb-1">Mahsulot nomi <span className="text-red-400">*</span></label>
@@ -240,7 +296,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                   <div className="sm:col-span-2 lg:col-span-3 flex justify-end gap-3">
                     <button
                       type="button"
-                      onClick={() => { setShowForm(false); setForm(emptyForm()); setFormError(''); }}
+                      onClick={handleCancelForm}
                       className="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white/70 hover:text-white text-sm font-medium transition-all"
                     >
                       Bekor qilish
@@ -249,7 +305,7 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                       type="submit"
                       className="px-5 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-sm font-semibold shadow-lg shadow-indigo-500/20 transition-all"
                     >
-                      Qo'shish
+                      {editProductId !== null ? 'Saqlash' : "Qo'shish"}
                     </button>
                   </div>
                 </form>
@@ -319,12 +375,21 @@ const AdminPage = ({ categories, onUpdateCategories }: AdminPageProps) => {
                               </button>
                             </div>
                           ) : (
-                            <button
-                              onClick={() => setDeleteConfirmId(product.id)}
-                              className="px-3 py-1 rounded-lg bg-red-500/20 hover:bg-red-500/40 border border-red-400/20 hover:border-red-400/40 text-red-300 hover:text-red-200 text-xs font-medium transition-all"
-                            >
-                              O'chirish
-                            </button>
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => handleEditStart(product)}
+                                className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/40 border border-amber-400/20 hover:border-amber-400/40 text-amber-300 hover:text-amber-200 text-xs font-medium transition-all"
+                              >
+                                <FaPencil className="text-[10px]" />
+                                Tahrirlash
+                              </button>
+                              <button
+                                onClick={() => setDeleteConfirmId(product.id)}
+                                className="px-3 py-1 rounded-lg bg-red-500/20 hover:bg-red-500/40 border border-red-400/20 hover:border-red-400/40 text-red-300 hover:text-red-200 text-xs font-medium transition-all"
+                              >
+                                O'chirish
+                              </button>
+                            </div>
                           )}
                         </td>
                       </tr>
