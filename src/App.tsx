@@ -81,6 +81,7 @@ const App = () => {
         <Header
           currentUser={currentUser}
           onLogout={handleLogout}
+          onGoToMain={() => setAppView('main')}
         />
         <AdminPage categories={categories} onUpdateCategories={handleUpdateCategories} />
       </div>
