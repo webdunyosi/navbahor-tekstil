@@ -66,7 +66,7 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
 
   return (
     <>
-      <div className="space-y-2">
+      <div className="space-y-3">
         {/* Category tabs */}
         <CategoryTabs
           categories={tabCategories}
