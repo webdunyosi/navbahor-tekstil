@@ -92,7 +92,6 @@ const App = () => {
       <Header
         currentUser={currentUser}
         onLogout={handleLogout}
-        onToggleAdminView={handleAdminIconClick}
         onMenuToggle={() => setSidebarOpen((prev) => !prev)}
       />
 
@@ -102,6 +101,7 @@ const App = () => {
           onPageChange={setSidebarPage}
           isOpen={sidebarOpen}
           onClose={() => setSidebarOpen(false)}
+          onToggleAdminView={handleAdminIconClick}
         />
 
         <main className="flex-1 px-4 sm:px-6 lg:px-8 py-8 space-y-6 min-w-0">
