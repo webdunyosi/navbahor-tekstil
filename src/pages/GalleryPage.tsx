@@ -5,6 +5,7 @@ import ProductModal from '../components/ProductModal';
 import type { Product } from '../types';
 import CategoryTabs from '../components/CategoryTabs';
 import SearchAndFilter from '../components/SearchAndFilter';
+import ImageWithSkeleton from '../components/ImageWithSkeleton';
 
 interface GalleryPageProps {
   categories: Category[];
@@ -104,10 +105,11 @@ const GalleryPage = ({ categories }: GalleryPageProps) => {
                   title={product.name}
                 >
                   {product.image ? (
-                    <img
+                    <ImageWithSkeleton
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      wrapperClassName="w-full h-full"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-white/20">
