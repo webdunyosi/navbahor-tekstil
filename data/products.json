@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Test",
+    "model": "M1",
+    "note": "",
+    "unit": "Dona",
+    "quantity": 5,
+    "department": "Ombor"
+  }
+]
