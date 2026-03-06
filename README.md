@@ -1,3 +1,25 @@
+# Navbahor Tekstil
+
+## Ishga tushirish
+
+### Frontend
+```bash
+npm install
+npm run dev
+```
+
+### Backend
+```bash
+cd server
+npm install
+npm run dev
+```
+
+Backend `http://localhost:3001` da ishga tushadi.  
+Frontend `http://localhost:5173` da ishga tushadi.
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
