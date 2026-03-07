@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FaIndustry, FaArrowLeft } from 'react-icons/fa6';
 import type { User } from '../types';
-import initialUsers from '../data/users.json';
+import { supabase } from '../lib/supabaseClient';
 
 interface LoginPageProps {
   onLogin: (user: User) => void;
@@ -12,25 +12,39 @@ const LoginPage = ({ onLogin, onCancel }: LoginPageProps) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
-    const storedUsers: User[] = JSON.parse(
-      localStorage.getItem('users') ?? JSON.stringify(initialUsers)
-    );
+    const trimmed = username.trim();
+    const email = trimmed.includes('@') ? trimmed : `${trimmed}@navbahor.local`;
 
-    const found = storedUsers.find(
-      (u) => u.username === username.trim() && u.password === password
-    );
+    const { data, error: authError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-    if (found) {
-      localStorage.setItem('currentUser', JSON.stringify(found));
-      onLogin(found);
-    } else {
-      setError("Login yoki parol noto'g'ri. Qaytadan urinib ko'ring.");
+    setLoading(false);
+
+    if (authError) {
+      setError(authError.message);
+      return;
     }
+
+    const sbUser = data.user;
+    const meta = sbUser?.user_metadata ?? {};
+    const userObj: User = {
+      id: sbUser?.id ?? '',
+      username: (meta.username as string | undefined) ?? trimmed,
+      role: (meta.role as 'admin' | 'user' | undefined) ?? 'user',
+      name: (meta.name as string | undefined) ?? trimmed,
+    };
+
+    localStorage.setItem('currentUser', JSON.stringify(userObj));
+    onLogin(userObj);
   };
 
   return (
@@ -107,9 +121,10 @@ const LoginPage = ({ onLogin, onCancel }: LoginPageProps) => {
 
             <button
               type="submit"
-              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg shadow-indigo-500/20 transition-all duration-200 active:scale-[0.98] mt-2"
+              disabled={loading}
+              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold shadow-lg shadow-indigo-500/20 transition-all duration-200 active:scale-[0.98] mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Kirish
+              {loading ? 'Kirish...' : 'Kirish'}
             </button>
           </form>
         </div>
