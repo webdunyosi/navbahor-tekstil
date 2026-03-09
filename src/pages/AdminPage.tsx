@@ -32,6 +32,16 @@ const productToForm = (p: Product): Omit<Product, 'id'> => ({
   bukum: p.bukum,
 });
 
+const productToForm = (p: Product): Omit<Product, 'id'> => ({
+  name: p.name,
+  model: p.model,
+  note: p.note,
+  unit: p.unit,
+  quantity: p.quantity,
+  department: p.department,
+  image: p.image ?? '',
+});
+
 const ProductImage = ({ src, alt, size = 'table' }: { src: string; alt: string; size?: 'table' | 'preview' }) => {
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
